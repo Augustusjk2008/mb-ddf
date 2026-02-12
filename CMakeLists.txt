@@ -267,6 +267,11 @@ if(ENABLE_TESTS)
     # 使用 FetchContent 下载 gtest 源码（随项目一起交叉编译）
     include(FetchContent)
 
+    # 将依赖下载到项目目录，而不是 build 目录
+    # 这样 clean build 时不会删除已下载的源码
+    set(FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/.deps" CACHE PATH "FetchContent base directory" FORCE)
+    message(STATUS "FetchContent base directory: ${FETCHCONTENT_BASE_DIR}")
+
     # 设置下载超时（秒）和进度显示
     set(FETCHCONTENT_QUIET OFF)
 

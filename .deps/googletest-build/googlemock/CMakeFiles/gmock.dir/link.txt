@@ -1,0 +1,2 @@
+"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-ar.exe" qc H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/lib/libgmock.a "CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-ranlib.exe" H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/lib/libgmock.a

@@ -1,2 +1,0 @@
-"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-ar.exe" qc ../../../lib/libgtest.a "CMakeFiles/gtest.dir/src/gtest-all.cc.o"
-"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-ranlib.exe" ../../../lib/libgtest.a
