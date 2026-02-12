@@ -130,6 +130,71 @@ MB_DDF_Demo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MB_DDF_Demo.dir/build.make CMakeFiles/MB_DDF_Demo.dir/build
 .PHONY : MB_DDF_Demo/fast
 
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named MB_DDF_Tests
+
+# Build rule for target.
+MB_DDF_Tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MB_DDF_Tests
+.PHONY : MB_DDF_Tests
+
+# fast build rule for target.
+MB_DDF_Tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/MB_DDF_Tests.dir/build.make tests/CMakeFiles/MB_DDF_Tests.dir/build
+.PHONY : MB_DDF_Tests/fast
+
 src/Demo/main.o: src/Demo/main.cpp.o
 .PHONY : src/Demo/main.o
 
@@ -562,6 +627,30 @@ src/MB_DDF/PhysicalLayer/Device/CanFdDeviceHardware.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MB_DDF_Demo.dir/build.make CMakeFiles/MB_DDF_Demo.dir/src/MB_DDF/PhysicalLayer/Device/CanFdDeviceHardware.cpp.s
 .PHONY : src/MB_DDF/PhysicalLayer/Device/CanFdDeviceHardware.cpp.s
 
+src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.o: src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.o
+.PHONY : src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.o
+
+# target to build an object file
+src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MB_DDF_Demo.dir/build.make CMakeFiles/MB_DDF_Demo.dir/src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.o
+.PHONY : src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.o
+
+src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.i: src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.i
+.PHONY : src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.i
+
+# target to preprocess a source file
+src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MB_DDF_Demo.dir/build.make CMakeFiles/MB_DDF_Demo.dir/src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.i
+.PHONY : src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.i
+
+src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.s: src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.s
+.PHONY : src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.s
+
+# target to generate assembly for a file
+src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MB_DDF_Demo.dir/build.make CMakeFiles/MB_DDF_Demo.dir/src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.s
+.PHONY : src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp.s
+
 src/MB_DDF/PhysicalLayer/Device/DdrDevice.o: src/MB_DDF/PhysicalLayer/Device/DdrDevice.cpp.o
 .PHONY : src/MB_DDF/PhysicalLayer/Device/DdrDevice.o
 
@@ -811,6 +900,11 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MB_DDF_Demo"
+	@echo "... MB_DDF_Tests"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... src/Demo/main.o"
 	@echo "... src/Demo/main.i"
 	@echo "... src/Demo/main.s"
@@ -865,6 +959,9 @@ help:
 	@echo "... src/MB_DDF/PhysicalLayer/Device/CanFdDeviceHardware.o"
 	@echo "... src/MB_DDF/PhysicalLayer/Device/CanFdDeviceHardware.i"
 	@echo "... src/MB_DDF/PhysicalLayer/Device/CanFdDeviceHardware.s"
+	@echo "... src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.o"
+	@echo "... src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.i"
+	@echo "... src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.s"
 	@echo "... src/MB_DDF/PhysicalLayer/Device/DdrDevice.o"
 	@echo "... src/MB_DDF/PhysicalLayer/Device/DdrDevice.i"
 	@echo "... src/MB_DDF/PhysicalLayer/Device/DdrDevice.s"

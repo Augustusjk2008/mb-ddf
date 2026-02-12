@@ -149,10 +149,10 @@ wsl -d Ubuntu -e bash -c "cd /mnt/h/RTLinux/Demos/MB_DDF && mkdir -p build-wsl &
 .\build.bat debug -DENABLE_TARGET_TESTS=ON
 
 # 2. 部署到目标板并执行
-$TestResults = ssh root@192.168.137.100 "/tmp/MB_DDFTests --gtest_filter=Target.*"
+$TestResults = ssh root@192.168.1.29 "/tmp/MB_DDFTests --gtest_filter=Target.*"
 
 # 3. 收集结果回传
-scp root@192.168.137.100:/tmp/test_report.xml ./
+scp root@192.168.1.29:/tmp/test_report.xml ./
 ```
 
 **测试分类标记**：
@@ -328,7 +328,7 @@ wsl -d Ubuntu -e bash -c "
 .\build.bat debug -DENABLE_TESTS=ON -DENABLE_TARGET_TESTS=ON
 
 # 自动部署脚本
-$RemoteHost = "192.168.137.100"
+$RemoteHost = "192.168.1.29"
 $RemoteDir = "/home/root/tmp"
 
 # 上传测试二进制

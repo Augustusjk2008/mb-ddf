@@ -326,4 +326,5 @@ CMakeFiles/MB_DDF_Demo.dir/src/MB_DDF/PhysicalLayer/Factory/HardwareFactory.cpp.
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/Yc7Device.h \
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/Rs422Device.h \
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/DdrDevice.h \
+ H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.h \
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Hardware/io_map.h

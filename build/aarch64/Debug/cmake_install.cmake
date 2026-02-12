@@ -42,6 +42,13 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-objdump.exe")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-build/cmake_install.cmake")
+  include("H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests/cmake_install.cmake")
+
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()

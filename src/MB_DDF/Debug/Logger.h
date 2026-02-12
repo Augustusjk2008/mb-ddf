@@ -101,13 +101,24 @@ public:
     /**
      * @brief 添加自定义输出回调函数
      * @param callback 回调函数，接收日志级别和格式化消息
-     * 
+     *
      * 可以添加多个回调函数，每次日志输出时都会调用所有已注册的回调。
      * 此操作是线程安全的。
      */
     void add_callback(OutputCallback callback) {
         std::lock_guard<std::mutex> lock(mutex_);
         callbacks_.push_back(std::move(callback));
+    }
+
+    /**
+     * @brief 清除所有自定义输出回调函数
+     *
+     * 用于测试或需要重置日志输出目标的场景。
+     * 此操作是线程安全的。
+     */
+    void clear_callbacks() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        callbacks_.clear();
     }
 
     /**

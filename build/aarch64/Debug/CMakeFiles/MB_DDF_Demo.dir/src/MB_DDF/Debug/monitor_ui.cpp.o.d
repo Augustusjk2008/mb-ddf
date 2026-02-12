@@ -247,38 +247,59 @@ CMakeFiles/MB_DDF_Demo.dir/src/MB_DDF/Debug/monitor_ui.cpp.o: \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\cstring \
  D:\Program\ Files\ (x86)\Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu\origin\armv8a-ucas-linux/usr/include/string.h \
  D:\Program\ Files\ (x86)\Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu\origin\armv8a-ucas-linux/usr/include/strings.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\algorithm \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ranges_algo.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ranges_algobase.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\iterator \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\stream_iterator.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\streambuf_iterator.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\streambuf \
+ h:\resources\rtlinux\demos\mb_ddf\src\mb_ddf\tools\selfdescribinglog.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\fstream \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\istream \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\ios \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ios_base.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\locale_classes.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\locale_classes.tcc \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\streambuf \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\streambuf.tcc \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ranges_util.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\pstl\glue_algorithm_defs.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\pstl\execution_defs.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\mutex \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\unique_lock.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\thread \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\stop_token \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\std_thread.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\unique_ptr.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\ostream \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\ios \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\basic_ios.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\locale_facets.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\cwctype \
  D:\Program\ Files\ (x86)\Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu\origin\armv8a-ucas-linux/usr/include/wctype.h \
  D:\Program\ Files\ (x86)\Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu\origin\armv8a-ucas-linux/usr/include/bits/wctype-wchar.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\aarch64-none-linux-gnu\bits\ctype_base.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\streambuf_iterator.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\aarch64-none-linux-gnu\bits\ctype_inline.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\locale_facets.tcc \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\basic_ios.tcc \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\ostream \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ostream.tcc \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\istream.tcc \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\codecvt.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\aarch64-none-linux-gnu\bits\basic_file.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\aarch64-none-linux-gnu\bits\c++io.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\fstream.tcc \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\memory \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\stl_raw_storage_iter.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\align.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bit \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\unique_ptr.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\shared_ptr.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\shared_ptr_base.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\allocated_ptr.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\ext\concurrence.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\shared_ptr_atomic.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\backward\auto_ptr.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ranges_uninitialized.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ranges_algobase.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\iterator \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\stream_iterator.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\uses_allocator_args.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\pstl\glue_memory_defs.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\pstl\execution_defs.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\algorithm \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ranges_algo.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ranges_util.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\pstl\glue_algorithm_defs.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\mutex \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\unique_lock.h \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\thread \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\stop_token \
+ d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\std_thread.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\semaphore \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\semaphore_base.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\atomic_timed_wait.h \
@@ -291,19 +312,6 @@ CMakeFiles/MB_DDF_Demo.dir/src/MB_DDF/Debug/monitor_ui.cpp.o: \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\stl_deque.h \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\deque.tcc \
  D:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include/ftxui/component/component.hpp \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\memory \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\stl_raw_storage_iter.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\align.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bit \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\shared_ptr.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\shared_ptr_base.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\allocated_ptr.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\ext\concurrence.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\shared_ptr_atomic.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\backward\auto_ptr.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\ranges_uninitialized.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\uses_allocator_args.h \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\pstl\glue_memory_defs.h \
  D:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include/ftxui/util/warn_windows_macro.hpp \
  D:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include/ftxui/component/component_base.hpp \
  D:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include/ftxui/component/captured_mouse.hpp \
@@ -323,8 +331,6 @@ CMakeFiles/MB_DDF_Demo.dir/src/MB_DDF/Debug/monitor_ui.cpp.o: \
  D:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include/ftxui/screen/terminal.hpp \
  D:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include/ftxui/dom/selection.hpp \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\sstream \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\istream \
- d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\istream.tcc \
  d:\program\ files\ (x86)\arm\ gnu\ toolchain\ aarch64-none-linux-gnu\11.3\ rel1\aarch64-none-linux-gnu\include\c++\11.3.1\bits\sstream.tcc \
  D:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include/ftxui/util/ref.hpp \
  D:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include/ftxui/screen/string.hpp \

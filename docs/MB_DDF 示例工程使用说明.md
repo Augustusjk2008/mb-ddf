@@ -2,7 +2,7 @@
 
 本文档聚焦 MB_DDF 的常用能力与接口含义，并配套本仓库的 Demo 代码讲解。所有 Demo 以“头文件形式”独立存在，最终在 [main.cpp](../src/Demo/main.cpp) 中统一调用。
 
-## 常用命令（开发机 -> 目标设备 192.168.137.100）
+## 常用命令（开发机 -> 目标设备 192.168.1.29）
 
 以下命令用于在 Windows 开发机上完成编译、连接目标板、清理 SSH 旧指纹、以及拷贝可执行文件到目标板。
 
@@ -11,24 +11,24 @@
 ./build.bat debug
 ./build.bat release
 
-ssh root@192.168.137.100
-ssh-keygen -R 192.168.137.100
-scp .\build\aarch64\Release\DemoProject root@192.168.137.100:/home/sast8/tmp/Demo
+ssh root@192.168.1.29
+ssh-keygen -R 192.168.1.29
+scp .\build\aarch64\Release\DemoProject root@192.168.1.29:/home/sast8/tmp/Demo
 ```
 
 - `./build.bat clean/debug/release`
   - 用途：调用 `build.ps1` 执行交叉编译（aarch64 Linux），并把可执行文件名固定为 `DemoProject`（见 [build.bat](../build.bat)）。
   - 输出：`.\build\aarch64\<Debug|Release>\DemoProject`
-- `ssh root@192.168.137.100`
-  - 用途：SSH 连接目标设备（用户名 root，IP 为 192.168.137.100）。
-- `ssh-keygen -R 192.168.137.100`
+- `ssh root@192.168.1.29`
+  - 用途：SSH 连接目标设备（用户名 root，IP 为 192.168.1.29）。
+- `ssh-keygen -R 192.168.1.29`
   - 用途：当目标设备重装系统/重刷镜像导致 SSH host key 变化时，删除本机 `known_hosts` 中旧记录，避免 “REMOTE HOST IDENTIFICATION HAS CHANGED” 报错。
-- `scp .\build\aarch64\Release\DemoProject root@192.168.137.100:/home/sast8/tmp/Demo`
+- `scp .\build\aarch64\Release\DemoProject root@192.168.1.29:/home/sast8/tmp/Demo`
   - 用途：把 Release 产物拷贝到目标设备目录 `/home/sast8/tmp/Demo`（可按需要改路径）。
 
 ## 目录
 
-- 0. 常用命令（开发机 -> 目标设备 192.168.137.100）
+- 0. 常用命令（开发机 -> 目标设备 192.168.1.29）
 - 1. DDS：初始化、发布/订阅、回调与主动读取
   - Demo：DDS 初始化与发布订阅
   - Demo：订阅回调读取 + 主动查询读取（latest/next）

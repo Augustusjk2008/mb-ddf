@@ -248,3 +248,63 @@ if(EXISTS "${_LOCAL_LIBS_LIB_DIR}")
         message(STATUS "Local libs dir exists but no .a/.so files found in ${_LOCAL_LIBS_LIB_DIR}")
     endif()
 endif()
+
+# ==============================
+# 9) Google Test 测试框架
+# ==============================
+option(ENABLE_TESTS "Enable test build (requires Google Test)" OFF)
+
+# 也检查环境变量ENABLE_TESTS
+if(NOT ENABLE_TESTS AND DEFINED ENV{ENABLE_TESTS})
+    set(ENABLE_TESTS $ENV{ENABLE_TESTS})
+    message(STATUS "ENABLE_TESTS set from environment: ${ENABLE_TESTS}")
+endif()
+
+if(ENABLE_TESTS)
+    message(STATUS "Tests enabled, fetching Google Test...")
+    message(STATUS "This may take a while depending on network speed...")
+
+    # 使用 FetchContent 下载 gtest 源码（随项目一起交叉编译）
+    include(FetchContent)
+
+    # 设置下载超时（秒）和进度显示
+    set(FETCHCONTENT_QUIET OFF)
+
+    # 检测是否需要使用镜像（可以通过环境变量设置）
+    if(DEFINED ENV{GTEST_GIT_MIRROR})
+        set(GTEST_GIT_REPO $ENV{GTEST_GIT_MIRROR})
+        message(STATUS "Using mirror from env: ${GTEST_GIT_REPO}")
+    else()
+        # 默认使用Gitee镜像（国内访问更快）
+        set(GTEST_GIT_REPO "https://gitee.com/mirrors/googletest.git")
+        message(STATUS "Using default mirror: ${GTEST_GIT_REPO}")
+    endif()
+
+    FetchContent_Declare(
+        googletest
+        GIT_REPOSITORY ${GTEST_GIT_REPO}
+        GIT_TAG v1.15.2  # 2024年稳定版本
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE  # 显示下载进度
+        TIMEOUT 300        # 5分钟超时
+    )
+
+    # 强制静态链接，避免目标板运行时依赖
+    set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+    # 禁用gtest的安装和测试
+    set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+    set(BUILD_GMOCK ON CACHE BOOL "" FORCE)
+
+    FetchContent_MakeAvailable(googletest)
+
+    message(STATUS "Google Test fetched and configured")
+
+    # 添加测试子目录
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests/CMakeLists.txt")
+        add_subdirectory(tests)
+    else()
+        message(WARNING "ENABLE_TESTS is ON but tests/CMakeLists.txt not found")
+    endif()
+endif()

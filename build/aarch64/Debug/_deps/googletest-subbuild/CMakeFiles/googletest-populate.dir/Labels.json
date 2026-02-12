@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test.rule"
+		},
+		{
+			"file" : "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

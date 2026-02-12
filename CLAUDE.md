@@ -36,7 +36,7 @@ Build output: `build/aarch64/<Debug|Release>/<ProjectName>`
 ## Debug/Deploy Commands
 
 ```powershell
-# Deploy binary and start gdbserver on target (default: 192.168.137.100:1234)
+# Deploy binary and start gdbserver on target (default: 192.168.1.29:1234)
 .\debug.bat
 
 # Build release and run directly on target via SSH
@@ -147,7 +147,7 @@ Local libraries in `libs/` are auto-linked if present:
 - `program` - Path to built binary
 - `setupCommands` text for `set sysroot`
 
-Default target: `192.168.137.100:1234`
+Default target: `192.168.1.29:1234`
 
 ## Target Requirements
 
@@ -156,3 +156,25 @@ The target ARM64 Linux board needs:
 - `/dev/xdma0*` device nodes (for XDMA hardware access)
 - gdbserver (automatically uploaded by debug script)
 - Writable directory at `/home/sast8/tmp` (default remote dir)
+
+## Testing
+
+Unit and integration tests using Google Test. All tests run on the AArch64 target board.
+
+```powershell
+# Build and run all tests
+.\tests\test-deploy.ps1
+
+# Run specific test category
+.\tests\test-deploy.ps1 -TestFilter "Message*"
+
+# Build only (no deploy)
+.\tests\test-deploy.ps1 -BuildOnly
+```
+
+Test categories:
+- `tests/unit/` - Pure logic tests (CRC32, Message, RingBuffer)
+- `tests/component/` - Module tests with mocked hardware
+- `tests/integration/` - Real hardware tests (XDMA, CAN, etc.)
+
+Tests are cross-compiled to AArch64 and executed on target via SSH.

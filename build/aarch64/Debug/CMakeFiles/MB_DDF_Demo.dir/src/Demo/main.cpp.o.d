@@ -408,6 +408,8 @@ CMakeFiles/MB_DDF_Demo.dir/src/Demo/main.cpp.o: \
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/Debug/monitor.hpp \
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/Debug/monitor_ui.hpp \
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/Debug/monitor_ui_logger.hpp \
+ H:/Resources/RTLinux/Demos/MB_DDF/src/Demo/fk_to_datalink_protocol.h \
+ H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/Tools/SelfDescribingLog.h \
  H:/Resources/RTLinux/Demos/MB_DDF/src/Demo/mb_ddf_demo_08_spi_flash.h \
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/ControlPlane/XdmaTransport.h \
  H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/ControlPlane/IDeviceTransport.h \

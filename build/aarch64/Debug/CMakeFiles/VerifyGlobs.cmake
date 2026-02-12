@@ -23,6 +23,7 @@ set(OLD_GLOB
   "H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/CanDevice.cpp"
   "H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/CanFdDevice.cpp"
   "H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/CanFdDeviceHardware.cpp"
+  "H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/DatalinkDevice.cpp"
   "H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/DdrDevice.cpp"
   "H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/HelmDevice.cpp"
   "H:/Resources/RTLinux/Demos/MB_DDF/src/MB_DDF/PhysicalLayer/Device/Rs422Device.cpp"
