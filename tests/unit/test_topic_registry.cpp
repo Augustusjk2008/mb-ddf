@@ -208,3 +208,72 @@ TEST_F(TopicRegistryTest, RegisterWithProtocolPrefix) {
     ASSERT_NE(found, nullptr);
     EXPECT_EQ(found->topic_id, info1->topic_id);
 }
+
+// ==============================
+// 共享内存边界耗尽测试
+// ==============================
+TEST_F(TopicRegistryTest, MemoryExhaustion) {
+    // 使用一个很小的共享内存（1MB）
+    shm_unlink("/test_shm_exhaust");
+    sem_unlink("/test_shm_exhaust_sem");
+
+    auto small_shm = std::make_unique<SharedMemoryManager>("/test_shm_exhaust", 1024 * 1024);  // 1MB
+    ASSERT_NE(small_shm->get_address(), nullptr);
+
+    auto small_registry = std::make_unique<TopicRegistry>(
+        small_shm->get_address(), small_shm->get_size(), small_shm.get());
+
+    int registered_count = 0;
+    // 尝试注册大量 topic 直到内存耗尽
+    for (int i = 0; i < 1000; ++i) {
+        std::string topic_name = "rt://exhaust/topic" + std::to_string(i);
+        auto* info = small_registry->register_topic(topic_name, 64 * 1024);  // 每个 64KB
+
+        if (info == nullptr) {
+            // 内存耗尽，注册失败
+            break;
+        }
+        registered_count++;
+    }
+
+    // 应该成功注册了一些，但不到 1000 个（因为内存有限）
+    EXPECT_GT(registered_count, 0);
+    EXPECT_LT(registered_count, 1000);
+
+    // 验证已注册的 topic 可以正常查找
+    for (int i = 0; i < registered_count; ++i) {
+        std::string topic_name = "rt://exhaust/topic" + std::to_string(i);
+        auto* found = small_registry->get_topic_metadata(topic_name);
+        EXPECT_NE(found, nullptr) << "Topic " << i << " should exist";
+    }
+
+    // 清理
+    small_registry.reset();
+    small_shm.reset();
+    shm_unlink("/test_shm_exhaust");
+    sem_unlink("/test_shm_exhaust_sem");
+}
+
+TEST_F(TopicRegistryTest, TotalBufferSizeTracking) {
+    // 注册一系列 topic，验证总缓冲区大小跟踪
+    size_t total_size = 0;
+    std::vector<size_t> sizes = {16*1024, 32*1024, 64*1024, 128*1024};
+
+    for (size_t i = 0; i < sizes.size(); ++i) {
+        std::string topic_name = "rt://size/topic" + std::to_string(i);
+        auto* info = registry_->register_topic(topic_name, sizes[i]);
+        ASSERT_NE(info, nullptr);
+        EXPECT_EQ(info->ring_buffer_size, sizes[i]);
+        total_size += sizes[i];
+    }
+
+    // 获取所有 topic 验证总大小
+    auto all_topics = registry_->get_all_topics();
+    EXPECT_EQ(all_topics.size(), sizes.size());
+
+    size_t actual_total = 0;
+    for (const auto* topic : all_topics) {
+        actual_total += topic->ring_buffer_size;
+    }
+    EXPECT_EQ(actual_total, total_size);
+}

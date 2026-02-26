@@ -111,10 +111,18 @@ std::shared_ptr<Subscriber> DDSCore::create_reader(const std::string& topic_name
 }
 
 size_t DDSCore::data_write(std::shared_ptr<Publisher> publisher, const void* data, size_t size) {
+    if (publisher == nullptr) {
+        LOG_ERROR << "failed to write data, publisher is null";
+        return 0;
+    }
     return publisher->write(data, size);
 }
 
 size_t DDSCore::data_read(std::shared_ptr<Subscriber> subscriber, void* data, size_t size) {
+    if (subscriber == nullptr) {
+        LOG_ERROR << "failed to read data, subscriber is null";
+        return 0;
+    }
     return subscriber->read(data, size);
 }
 

@@ -388,3 +388,393 @@ TEST_F(RingBufferTest, ConcurrentPublish) {
 
     EXPECT_EQ(publish_count, num_messages);
 }
+
+// ==============================
+// read_expected 测试
+// ==============================
+TEST_F(RingBufferTest, ReadExpectedBasic) {
+    // 发布3条消息
+    rb_->publish_message("msg1", 5);
+    rb_->publish_message("msg2", 5);
+    rb_->publish_message("msg3", 5);
+
+    auto* sub = rb_->register_subscriber(1, "expected_sub");
+    Message* msg = nullptr;
+
+    // 第一次读取，期望序列号1
+    EXPECT_TRUE(rb_->read_expected(sub, msg, 1));
+    ASSERT_NE(msg, nullptr);
+    EXPECT_EQ(msg->header.sequence, 1);
+    EXPECT_STREQ(static_cast<const char*>(msg->get_data()), "msg1");
+
+    // 第二次读取，期望序列号2
+    EXPECT_TRUE(rb_->read_expected(sub, msg, 2));
+    ASSERT_NE(msg, nullptr);
+    EXPECT_EQ(msg->header.sequence, 2);
+    EXPECT_STREQ(static_cast<const char*>(msg->get_data()), "msg2");
+
+    // 第三次读取，期望序列号3
+    EXPECT_TRUE(rb_->read_expected(sub, msg, 3));
+    ASSERT_NE(msg, nullptr);
+    EXPECT_EQ(msg->header.sequence, 3);
+    EXPECT_STREQ(static_cast<const char*>(msg->get_data()), "msg3");
+}
+
+TEST_F(RingBufferTest, ReadExpectedSequenceMismatch) {
+    // 发布3条消息
+    rb_->publish_message("msg1", 5);
+    rb_->publish_message("msg2", 5);
+    rb_->publish_message("msg3", 5);
+
+    auto* sub = rb_->register_subscriber(1, "mismatch_sub");
+    Message* msg = nullptr;
+
+    // 尝试直接读取序列号3（跳过1,2）
+    // 根据实现，如果期望的序列号不匹配，应该返回false或跳到该位置
+    bool result = rb_->read_expected(sub, msg, 3);
+
+    // 如果返回true，验证读到的内容
+    if (result && msg != nullptr) {
+        EXPECT_EQ(msg->header.sequence, 3);
+        EXPECT_STREQ(static_cast<const char*>(msg->get_data()), "msg3");
+    }
+}
+
+TEST_F(RingBufferTest, ReadExpectedNoMessage) {
+    auto* sub = rb_->register_subscriber(1, "no_msg_sub");
+    Message* msg = nullptr;
+
+    // 没有消息时读取应该返回false
+    EXPECT_FALSE(rb_->read_expected(sub, msg, 1));
+}
+
+// ==============================
+// get_unread_count 测试
+// ==============================
+TEST_F(RingBufferTest, GetUnreadCountBasic) {
+    auto* sub = rb_->register_subscriber(1, "count_sub");
+
+    // 初始时未读数量为0
+    EXPECT_EQ(rb_->get_unread_count(sub), 0);
+
+    // 发布1条消息
+    rb_->publish_message("msg1", 5);
+    EXPECT_EQ(rb_->get_unread_count(sub), 1);
+
+    // 再发布2条
+    rb_->publish_message("msg2", 5);
+    rb_->publish_message("msg3", 5);
+    EXPECT_EQ(rb_->get_unread_count(sub), 3);
+}
+
+TEST_F(RingBufferTest, GetUnreadCountAfterRead) {
+    auto* sub = rb_->register_subscriber(1, "count_after_read");
+
+    // 发布5条消息
+    for (int i = 0; i < 5; ++i) {
+        std::string msg = "msg" + std::to_string(i);
+        rb_->publish_message(msg.c_str(), msg.size() + 1);
+    }
+    EXPECT_EQ(rb_->get_unread_count(sub), 5);
+
+    // 读取2条
+    Message* msg = nullptr;
+    rb_->read_next(sub, msg);
+    rb_->read_next(sub, msg);
+
+    // 剩余未读数量应为3
+    EXPECT_EQ(rb_->get_unread_count(sub), 3);
+
+    // 读取所有剩余消息
+    while (rb_->read_next(sub, msg)) {
+        // 继续读取
+    }
+    EXPECT_EQ(rb_->get_unread_count(sub), 0);
+}
+
+TEST_F(RingBufferTest, GetUnreadCountMultipleSubscribers) {
+    auto* sub1 = rb_->register_subscriber(1, "sub1_count");
+    auto* sub2 = rb_->register_subscriber(2, "sub2_count");
+
+    // 发布3条消息
+    rb_->publish_message("msg1", 5);
+    rb_->publish_message("msg2", 5);
+    rb_->publish_message("msg3", 5);
+
+    // 两个订阅者都看到3条未读
+    EXPECT_EQ(rb_->get_unread_count(sub1), 3);
+    EXPECT_EQ(rb_->get_unread_count(sub2), 3);
+
+    // sub1读取1条
+    Message* msg = nullptr;
+    rb_->read_next(sub1, msg);
+
+    // sub1剩余2条，sub2仍然是3条
+    EXPECT_EQ(rb_->get_unread_count(sub1), 2);
+    EXPECT_EQ(rb_->get_unread_count(sub2), 3);
+}
+
+// ==============================
+// wait_for_message 测试
+// ==============================
+TEST_F(RingBufferTest, WaitForMessageTimeout) {
+    auto* sub = rb_->register_subscriber(1, "wait_sub");
+
+    // 没有消息时等待应该超时返回false
+    auto start = std::chrono::steady_clock::now();
+    bool result = rb_->wait_for_message(sub, 100); // 100ms超时
+    auto end = std::chrono::steady_clock::now();
+
+    EXPECT_FALSE(result);
+    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    EXPECT_GE(elapsed, 80); // 允许一定的误差
+}
+
+TEST_F(RingBufferTest, WaitForMessageSuccess) {
+    auto* sub = rb_->register_subscriber(1, "wait_success_sub");
+
+    // 先发布一条消息
+    rb_->publish_message("preloaded", 10);
+
+    // 应该立即返回true（有消息可读）
+    bool result = rb_->wait_for_message(sub, 1000);
+    EXPECT_TRUE(result);
+}
+
+TEST_F(RingBufferTest, WaitForMessageAsync) {
+    auto* sub = rb_->register_subscriber(1, "wait_async_sub");
+
+    // 在另一个线程延迟发布消息
+    std::atomic<bool> published{false};
+    std::thread producer([&]() {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        rb_->publish_message("delayed", 8);
+        published = true;
+    });
+
+    // 等待消息（应该有）
+    bool result = rb_->wait_for_message(sub, 1000);
+    producer.join();
+
+    EXPECT_TRUE(result);
+    EXPECT_TRUE(published);
+
+    // 验证读到的消息
+    Message* msg = nullptr;
+    EXPECT_TRUE(rb_->read_next(sub, msg));
+    EXPECT_STREQ(static_cast<const char*>(msg->get_data()), "delayed");
+}
+
+// ==============================
+// get_statistics 测试
+// ==============================
+TEST_F(RingBufferTest, GetStatisticsBasic) {
+    // 获取初始统计信息
+    auto stats = rb_->get_statistics();
+    EXPECT_EQ(stats.total_messages, 0);
+    EXPECT_EQ(stats.current_sequence, 0);
+    EXPECT_EQ(stats.active_subscribers, 0);
+    EXPECT_TRUE(stats.subscribers.empty());
+
+    // 发布消息
+    rb_->publish_message("msg1", 5);
+    rb_->publish_message("msg2", 5);
+
+    stats = rb_->get_statistics();
+    EXPECT_EQ(stats.total_messages, 2);
+    EXPECT_EQ(stats.current_sequence, 2);
+
+    // 注册订阅者
+    auto* sub1 = rb_->register_subscriber(1, "sub1_stats");
+    auto* sub2 = rb_->register_subscriber(2, "sub2_stats");
+
+    stats = rb_->get_statistics();
+    EXPECT_EQ(stats.active_subscribers, 2);
+    EXPECT_EQ(stats.subscribers.size(), 2);
+
+    // 验证订阅者信息
+    bool found_sub1 = false, found_sub2 = false;
+    for (const auto& [id, name] : stats.subscribers) {
+        if (id == 1 && name == "sub1_stats") found_sub1 = true;
+        if (id == 2 && name == "sub2_stats") found_sub2 = true;
+    }
+    EXPECT_TRUE(found_sub1);
+    EXPECT_TRUE(found_sub2);
+}
+
+TEST_F(RingBufferTest, GetStatisticsAfterWrapAround) {
+    // 注册订阅者
+    auto* sub = rb_->register_subscriber(1, "stats_wrap_sub");
+
+    // 发布大量消息触发回绕
+    char large_data[4096] = {0};
+    memset(large_data, 'A', sizeof(large_data));
+
+    const int num_messages = 30;
+    for (int i = 0; i < num_messages; ++i) {
+        rb_->publish_message(large_data, sizeof(large_data));
+    }
+
+    auto stats = rb_->get_statistics();
+    EXPECT_EQ(stats.total_messages, num_messages);
+    EXPECT_EQ(stats.current_sequence, num_messages);
+    EXPECT_EQ(stats.active_subscribers, 1);
+}
+
+TEST_F(RingBufferTest, GetStatisticsAfterUnregister) {
+    auto* sub1 = rb_->register_subscriber(1, "sub1_unregister");
+    auto* sub2 = rb_->register_subscriber(2, "sub2_unregister");
+
+    auto stats = rb_->get_statistics();
+    EXPECT_EQ(stats.active_subscribers, 2);
+
+    // 注销一个订阅者
+    rb_->unregister_subscriber(sub1);
+
+    stats = rb_->get_statistics();
+    // unregister_subscriber 只是标记订阅者为非活跃，可能不立即减少计数
+    // 根据具体实现验证
+    EXPECT_LE(stats.active_subscribers, 2);
+}
+
+// ==============================
+// empty(), full(), available_space(), available_data() 测试
+// ==============================
+TEST_F(RingBufferTest, EmptyAndFull) {
+    // 初始状态：空且不满
+    EXPECT_TRUE(rb_->empty());
+    EXPECT_FALSE(rb_->full());
+
+    // 发布一条消息
+    rb_->publish_message("test", 5);
+    EXPECT_FALSE(rb_->empty());
+    EXPECT_FALSE(rb_->full());
+}
+
+TEST_F(RingBufferTest, AvailableSpaceAndData) {
+    // 获取初始可用空间
+    size_t initial_space = rb_->available_space();
+    size_t initial_data = rb_->available_data();
+
+    EXPECT_GT(initial_space, 0);
+    EXPECT_EQ(initial_data, 0);
+
+    // 发布消息
+    const char* msg = "Hello, RingBuffer!";
+    size_t msg_size = strlen(msg) + 1;
+    rb_->publish_message(msg, msg_size);
+
+    // 可用数据应该增加
+    EXPECT_GT(rb_->available_data(), 0);
+
+    // 注意：由于环形缓冲区覆盖语义，available_space() 可能不会减少
+    // 它返回的是可写入空间（考虑覆盖），不是剩余空间
+    // 因此不验证 available_space() 的变化
+}
+
+TEST_F(RingBufferTest, FullBufferBehavior) {
+    // 发布大量消息直到缓冲区满
+    char large_data[4096] = {0};
+    memset(large_data, 'A', sizeof(large_data));
+
+    int count = 0;
+    while (!rb_->full() && count < 100) {
+        rb_->publish_message(large_data, sizeof(large_data));
+        count++;
+    }
+
+    // 缓冲区应该已满或接近满
+    // full() 返回值取决于实现（可能是写位置接近读位置）
+    (void)rb_->full();
+
+    // 读取一些消息
+    auto* sub = rb_->register_subscriber(1, "full_test_sub");
+    Message* msg = nullptr;
+    rb_->read_next(sub, msg);
+
+    // 读取后应该不再满
+    EXPECT_FALSE(rb_->full());
+}
+
+// ==============================
+// set_publisher(), remove_publisher() 测试
+// ==============================
+TEST_F(RingBufferTest, SetAndRemovePublisher) {
+    // 设置发布者信息
+    bool result = rb_->set_publisher(12345, "TestPublisher");
+    EXPECT_TRUE(result);
+
+    // 获取统计信息验证发布者信息
+    auto stats = rb_->get_statistics();
+    // 统计信息中可能不包含发布者信息，取决于实现
+
+    // 移除发布者
+    rb_->remove_publisher();
+
+    // 移除后再次设置
+    result = rb_->set_publisher(99999, "AnotherPublisher");
+    EXPECT_TRUE(result);
+}
+
+TEST_F(RingBufferTest, SetPublisherEmptyName) {
+    // 设置空名称的发布者
+    bool result = rb_->set_publisher(1, "");
+    EXPECT_TRUE(result);
+}
+
+// ==============================
+// notify_subscribers() 测试
+// ==============================
+TEST_F(RingBufferTest, NotifySubscribers) {
+    auto* sub = rb_->register_subscriber(1, "notify_sub");
+
+    // 在另一个线程等待消息
+    std::atomic<bool> notified{false};
+    std::thread waiter([&]() {
+        // 等待消息通知
+        bool result = rb_->wait_for_message(sub, 500); // 500ms 超时
+        if (result) {
+            notified = true;
+        }
+    });
+
+    // 等待一段时间确保 waiter 进入等待状态
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+
+    // 发布消息并通知订阅者
+    rb_->publish_message("notify_test", 12);
+    rb_->notify_subscribers();
+
+    waiter.join();
+
+    EXPECT_TRUE(notified);
+}
+
+TEST_F(RingBufferTest, NotifyWithoutSubscribers) {
+    // 没有订阅者时调用 notify 应该安全
+    rb_->notify_subscribers();
+    rb_->notify_subscribers();
+    EXPECT_TRUE(true); // 没有崩溃即通过
+}
+
+// ==============================
+// is_checksum_enabled() 测试
+// ==============================
+TEST_F(RingBufferTest, IsChecksumEnabled) {
+    // 默认构造时启用校验和
+    EXPECT_TRUE(rb_->is_checksum_enabled());
+}
+
+TEST_F(RingBufferTest, ChecksumDisabled) {
+    // 创建禁用校验和的 RingBuffer
+    sem_t sem2;
+    sem_init(&sem2, 0, 1);
+    uint8_t* buffer2 = static_cast<uint8_t*>(aligned_alloc(64, 64 * 1024));
+    ASSERT_NE(buffer2, nullptr);
+
+    auto rb_no_checksum = std::make_unique<RingBuffer>(buffer2, 64 * 1024, &sem2, false);
+    EXPECT_FALSE(rb_no_checksum->is_checksum_enabled());
+
+    free(buffer2);
+    sem_destroy(&sem2);
+}

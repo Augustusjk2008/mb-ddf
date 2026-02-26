@@ -21,6 +21,10 @@ public:
 
     void*  getMappedBase() const override { return nullptr; }
     size_t getMappedLength() const override { return 0; }
+    bool   readReg8(uint64_t, uint8_t&) const override { return false; }
+    bool   writeReg8(uint64_t, uint8_t) override { return false; }
+    bool   readReg16(uint64_t, uint16_t&) const override { return false; }
+    bool   writeReg16(uint64_t, uint16_t) override { return false; }
     bool   readReg32(uint64_t, uint32_t&) const override { return false; }
     bool   writeReg32(uint64_t, uint32_t) override { return false; }
 

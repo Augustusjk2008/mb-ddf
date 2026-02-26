@@ -59,6 +59,20 @@ inline void RunDemo03_AllHardwareFactoryExamples() {
         // 打印该 handle 的 MTU（不同后端差异很大）
         LOG_INFO << "HardwareFactory create ok, name=" << name << ", mtu=" << handle->getMTU();
 
+        // 尝试对 ddr 后端做一次“可在无硬件环境下验证的收发”
+        if (std::string(name) == "ddr") {
+            // DDR：发送一段 bytes
+            const char payload[] = "demo_ddr_payload";
+            const bool send_ok = handle->send(reinterpret_cast<const uint8_t*>(payload), sizeof(payload));
+            LOG_INFO << "ddr send ok=" << (send_ok ? 1 : 0);
+
+            // DDR：接收一段 bytes（带超时），并打印收到的长度
+            std::array<uint8_t, 2048> buf{};
+            const int32_t n = handle->receive(buf.data(), static_cast<uint32_t>(buf.size()), 200000);
+            LOG_INFO << "ddr receive bytes=" << n;
+        }
+
+        // 对 udp 后端做一次“可在无硬件环境下验证的收发”
         if (std::string(name) == "udp") {
             // UDP：发送一段 bytes
             const char payload[] = "demo_udp_payload";

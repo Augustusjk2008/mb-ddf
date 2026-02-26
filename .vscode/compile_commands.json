@@ -205,9 +205,27 @@
 },
 {
   "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",
+  "command": "\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-g++.exe\" --sysroot=\"D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\origin\\\\armv8a-ucas-linux\" -DMB_DDF_TEST_BUILD=1 -IH:/Resources/RTLinux/Demos/MB_DDF/tests -IH:/Resources/RTLinux/Demos/MB_DDF/src -IH:/Resources/RTLinux/Demos/MB_DDF -I\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include\" -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock -g -std=gnu++20 -g -O0 -Wall -Wextra --coverage -o CMakeFiles/MB_DDF_Tests.dir/unit/test_dds_core.cpp.o -c H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_dds_core.cpp",
+  "file": "H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_dds_core.cpp",
+  "output": "tests/CMakeFiles/MB_DDF_Tests.dir/unit/test_dds_core.cpp.o"
+},
+{
+  "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",
+  "command": "\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-g++.exe\" --sysroot=\"D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\origin\\\\armv8a-ucas-linux\" -DMB_DDF_TEST_BUILD=1 -IH:/Resources/RTLinux/Demos/MB_DDF/tests -IH:/Resources/RTLinux/Demos/MB_DDF/src -IH:/Resources/RTLinux/Demos/MB_DDF -I\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include\" -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock -g -std=gnu++20 -g -O0 -Wall -Wextra --coverage -o CMakeFiles/MB_DDF_Tests.dir/unit/test_event_multiplexer.cpp.o -c H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_event_multiplexer.cpp",
+  "file": "H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_event_multiplexer.cpp",
+  "output": "tests/CMakeFiles/MB_DDF_Tests.dir/unit/test_event_multiplexer.cpp.o"
+},
+{
+  "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",
   "command": "\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-g++.exe\" --sysroot=\"D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\origin\\\\armv8a-ucas-linux\" -DMB_DDF_TEST_BUILD=1 -IH:/Resources/RTLinux/Demos/MB_DDF/tests -IH:/Resources/RTLinux/Demos/MB_DDF/src -IH:/Resources/RTLinux/Demos/MB_DDF -I\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include\" -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock -g -std=gnu++20 -g -O0 -Wall -Wextra --coverage -o CMakeFiles/MB_DDF_Tests.dir/unit/test_logger.cpp.o -c H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_logger.cpp",
   "file": "H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_logger.cpp",
   "output": "tests/CMakeFiles/MB_DDF_Tests.dir/unit/test_logger.cpp.o"
+},
+{
+  "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",
+  "command": "\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-g++.exe\" --sysroot=\"D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\origin\\\\armv8a-ucas-linux\" -DMB_DDF_TEST_BUILD=1 -IH:/Resources/RTLinux/Demos/MB_DDF/tests -IH:/Resources/RTLinux/Demos/MB_DDF/src -IH:/Resources/RTLinux/Demos/MB_DDF -I\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include\" -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock -g -std=gnu++20 -g -O0 -Wall -Wextra --coverage -o CMakeFiles/MB_DDF_Tests.dir/unit/test_logger_extensions.cpp.o -c H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_logger_extensions.cpp",
+  "file": "H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_logger_extensions.cpp",
+  "output": "tests/CMakeFiles/MB_DDF_Tests.dir/unit/test_logger_extensions.cpp.o"
 },
 {
   "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",
@@ -220,6 +238,24 @@
   "command": "\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-g++.exe\" --sysroot=\"D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\origin\\\\armv8a-ucas-linux\" -DMB_DDF_TEST_BUILD=1 -IH:/Resources/RTLinux/Demos/MB_DDF/tests -IH:/Resources/RTLinux/Demos/MB_DDF/src -IH:/Resources/RTLinux/Demos/MB_DDF -I\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include\" -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock -g -std=gnu++20 -g -O0 -Wall -Wextra --coverage -o CMakeFiles/MB_DDF_Tests.dir/unit/test_message.cpp.o -c H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_message.cpp",
   "file": "H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_message.cpp",
   "output": "tests/CMakeFiles/MB_DDF_Tests.dir/unit/test_message.cpp.o"
+},
+{
+  "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",
+  "command": "\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-g++.exe\" --sysroot=\"D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\origin\\\\armv8a-ucas-linux\" -DMB_DDF_TEST_BUILD=1 -IH:/Resources/RTLinux/Demos/MB_DDF/tests -IH:/Resources/RTLinux/Demos/MB_DDF/src -IH:/Resources/RTLinux/Demos/MB_DDF -I\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include\" -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock -g -std=gnu++20 -g -O0 -Wall -Wextra --coverage -o CMakeFiles/MB_DDF_Tests.dir/unit/test_null_transport.cpp.o -c H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_null_transport.cpp",
+  "file": "H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_null_transport.cpp",
+  "output": "tests/CMakeFiles/MB_DDF_Tests.dir/unit/test_null_transport.cpp.o"
+},
+{
+  "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",
+  "command": "\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-g++.exe\" --sysroot=\"D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\origin\\\\armv8a-ucas-linux\" -DMB_DDF_TEST_BUILD=1 -IH:/Resources/RTLinux/Demos/MB_DDF/tests -IH:/Resources/RTLinux/Demos/MB_DDF/src -IH:/Resources/RTLinux/Demos/MB_DDF -I\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include\" -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock -g -std=gnu++20 -g -O0 -Wall -Wextra --coverage -o CMakeFiles/MB_DDF_Tests.dir/unit/test_pubandsub.cpp.o -c H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_pubandsub.cpp",
+  "file": "H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_pubandsub.cpp",
+  "output": "tests/CMakeFiles/MB_DDF_Tests.dir/unit/test_pubandsub.cpp.o"
+},
+{
+  "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",
+  "command": "\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/11.3 rel1/bin/aarch64-none-linux-gnu-g++.exe\" --sysroot=\"D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\origin\\\\armv8a-ucas-linux\" -DMB_DDF_TEST_BUILD=1 -IH:/Resources/RTLinux/Demos/MB_DDF/tests -IH:/Resources/RTLinux/Demos/MB_DDF/src -IH:/Resources/RTLinux/Demos/MB_DDF -I\"D:/Program Files (x86)/Arm GNU Toolchain aarch64-none-linux-gnu/origin/armv8a-ucas-linux/usr/local/include\" -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock/include -isystem H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googlemock -g -std=gnu++20 -g -O0 -Wall -Wextra --coverage -o CMakeFiles/MB_DDF_Tests.dir/unit/test_publisher_subscriber.cpp.o -c H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_publisher_subscriber.cpp",
+  "file": "H:/Resources/RTLinux/Demos/MB_DDF/tests/unit/test_publisher_subscriber.cpp",
+  "output": "tests/CMakeFiles/MB_DDF_Tests.dir/unit/test_publisher_subscriber.cpp.o"
 },
 {
   "directory": "H:/Resources/RTLinux/Demos/MB_DDF/build/aarch64/Debug/tests",

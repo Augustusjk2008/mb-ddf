@@ -1,0 +1,896 @@
+﻿Running main() from H:/Resources/RTLinux/Demos/MB_DDF/.deps/googletest-src/googletest/src/gtest_main.cc
+[0;32m[==========] [mRunning 259 tests from 29 test suites.
+[0;32m[----------] [mGlobal test environment set-up.
+[0;32m[----------] [m3 tests from ChronoHelperTiming
+[0;32m[ RUN      ] [mChronoHelperTiming.BasicTiming
+[0;32m[       OK ] [mChronoHelperTiming.BasicTiming (100 ms)
+[0;32m[ RUN      ] [mChronoHelperTiming.AverageTiming
+[0;32m[       OK ] [mChronoHelperTiming.AverageTiming (1 ms)
+[0;32m[ RUN      ] [mChronoHelperTiming.AverageTimingReturn
+[0;32m[       OK ] [mChronoHelperTiming.AverageTimingReturn (101 ms)
+[0;32m[----------] [m3 tests from ChronoHelperTiming (203 ms total)
+
+[0;32m[----------] [m3 tests from ChronoHelperClock
+[0;32m[ RUN      ] [mChronoHelperClock.SegmentTiming
+[0;32m[       OK ] [mChronoHelperClock.SegmentTiming (50 ms)
+[0;32m[ RUN      ] [mChronoHelperClock.MultipleSegments
+[0;32m[       OK ] [mChronoHelperClock.MultipleSegments (10 ms)
+[0;32m[ RUN      ] [mChronoHelperClock.InvalidClockId
+[0;32m[       OK ] [mChronoHelperClock.InvalidClockId (0 ms)
+[0;32m[----------] [m3 tests from ChronoHelperClock (60 ms total)
+
+[0;32m[----------] [m2 tests from ChronoHelperRecord
+[0;32m[ RUN      ] [mChronoHelperRecord.BasicRecord
+[0;32m[       OK ] [mChronoHelperRecord.BasicRecord (5 ms)
+[0;32m[ RUN      ] [mChronoHelperRecord.MultipleCounters
+[0;32m[       OK ] [mChronoHelperRecord.MultipleCounters (0 ms)
+[0;32m[----------] [m2 tests from ChronoHelperRecord (5 ms total)
+
+[0;32m[----------] [m3 tests from ChronoHelperControl
+[0;32m[ RUN      ] [mChronoHelperControl.OnOffSwitch
+[0;32m[       OK ] [mChronoHelperControl.OnOffSwitch (0 ms)
+[0;32m[ RUN      ] [mChronoHelperControl.ResetCounter
+[0;32m[       OK ] [mChronoHelperControl.ResetCounter (0 ms)
+[0;32m[ RUN      ] [mChronoHelperControl.OverwriteOutput
+[0;32m[       OK ] [mChronoHelperControl.OverwriteOutput (0 ms)
+[0;32m[----------] [m3 tests from ChronoHelperControl (0 ms total)
+
+[0;32m[----------] [m19 tests from DDSCoreTest
+[0;32m[ RUN      ] [mDDSCoreTest.InitializeAndShutdown
+2018-03-09 13:07:57.492 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.492 [[33mWARN[0m] [initialize:132] already initialized, shared memory size: 16777216
+2018-03-09 13:07:57.495 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+[0;32m[       OK ] [mDDSCoreTest.InitializeAndShutdown (19 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.MultipleShutdownSafe
+2018-03-09 13:07:57.505 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 8388608 bytes shared memory
+[0;32m[       OK ] [mDDSCoreTest.MultipleShutdownSafe (8 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.CreatePublisherBeforeInit
+2018-03-09 13:07:57.609 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 134217728 bytes shared memory
+2018-03-09 13:07:57.609 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.609 [[32mINFO[0m] [set_publisher:163] set_publisher 11981544084182201678 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.CreatePublisherBeforeInit (136 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.CreatePublisherAfterInit
+2018-03-09 13:07:57.657 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.657 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/pub with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.657 [[32mINFO[0m] [set_publisher:163] set_publisher 7992706935334267165 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.CreatePublisherAfterInit (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.CreateSubscriberAfterInit
+2018-03-09 13:07:57.674 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.674 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/sub with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.674 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.CreateSubscriberAfterInit (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.CreateWriterAlias
+2018-03-09 13:07:57.691 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.692 [[32mINFO[0m] [register_topic:162] Registered topic: rt://writer/topic with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.692 [[32mINFO[0m] [set_publisher:163] set_publisher 11697551137166351010 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.CreateWriterAlias (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.CreateReaderAlias
+2018-03-09 13:07:57.709 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.709 [[32mINFO[0m] [register_topic:162] Registered topic: rt://reader/topic with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.709 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.CreateReaderAlias (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.DataWriteAndRead
+2018-03-09 13:07:57.726 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.726 [[32mINFO[0m] [register_topic:162] Registered topic: rt://data/test with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.726 [[32mINFO[0m] [set_publisher:163] set_publisher 11994287787972571304 MB_DDF_Tests
+2018-03-09 13:07:57.726 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.DataWriteAndRead (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.DataReadEmpty
+2018-03-09 13:07:57.743 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.744 [[32mINFO[0m] [register_topic:162] Registered topic: rt://empty/test with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.744 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.DataReadEmpty (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.DataWriteNullPublisher
+2018-03-09 13:07:57.761 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.761 [[31mERROR[0m] [data_write:115] failed to write data, publisher is null
+[0;32m[       OK ] [mDDSCoreTest.DataWriteNullPublisher (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.DataReadNullSubscriber
+2018-03-09 13:07:57.778 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.778 [[31mERROR[0m] [data_read:123] failed to read data, subscriber is null
+[0;32m[       OK ] [mDDSCoreTest.DataReadNullSubscriber (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.PubAndSubBasic
+2018-03-09 13:07:57.795 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+[0;32m[       OK ] [mDDSCoreTest.PubAndSubBasic (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.MultipleTopics
+2018-03-09 13:07:57.825 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 33554432 bytes shared memory
+2018-03-09 13:07:57.825 [[32mINFO[0m] [register_topic:162] Registered topic: rt://topic/one with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.825 [[32mINFO[0m] [set_publisher:163] set_publisher 14241174775770156644 MB_DDF_Tests
+2018-03-09 13:07:57.825 [[32mINFO[0m] [register_topic:162] Registered topic: rt://topic/two with ID: 2 at offset: 1065024 (aligned size: 1048576)
+2018-03-09 13:07:57.825 [[32mINFO[0m] [set_publisher:163] set_publisher 1823135416140161682 MB_DDF_Tests
+2018-03-09 13:07:57.825 [[32mINFO[0m] [register_topic:162] Registered topic: rt://topic/three with ID: 3 at offset: 2113600 (aligned size: 1048576)
+2018-03-09 13:07:57.825 [[32mINFO[0m] [set_publisher:163] set_publisher 15190871892777080518 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.MultipleTopics (34 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.SameTopicMultiplePublishers
+2018-03-09 13:07:57.847 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:57.847 [[32mINFO[0m] [register_topic:162] Registered topic: rt://shared/topic with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.847 [[32mINFO[0m] [set_publisher:163] set_publisher 13449125568690213013 MB_DDF_Tests
+2018-03-09 13:07:57.847 [[32mINFO[0m] [set_publisher:148] set_publisher 8550218474865934701 MB_DDF_Tests (name unchanged)
+[0;32m[       OK ] [mDDSCoreTest.SameTopicMultiplePublishers (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.EndToEndMessaging
+2018-03-09 13:07:57.876 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 33554432 bytes shared memory
+2018-03-09 13:07:57.877 [[32mINFO[0m] [register_topic:162] Registered topic: rt://e2e/test with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.877 [[32mINFO[0m] [set_publisher:163] set_publisher 1125183270880740863 MB_DDF_Tests
+2018-03-09 13:07:57.877 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.EndToEndMessaging (34 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.CallbackSubscription
+2018-03-09 13:07:57.911 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 33554432 bytes shared memory
+2018-03-09 13:07:57.911 [[32mINFO[0m] [register_topic:162] Registered topic: rt://callback/test with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:57.911 [[32mINFO[0m] [set_publisher:163] set_publisher 7768867640626883398 MB_DDF_Tests
+2018-03-09 13:07:58.011 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.CallbackSubscription (134 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.EmptyTopicName
+2018-03-09 13:07:58.033 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:58.033 [[31mERROR[0m] [create_or_get_topic_buffer:215] Invalid topic name: 
+2018-03-09 13:07:58.033 [[31mERROR[0m] [create_publisher:44] failed to create or get topic buffer, topic name: 
+[0;32m[       OK ] [mDDSCoreTest.EmptyTopicName (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.InvalidTopicName
+2018-03-09 13:07:58.050 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+2018-03-09 13:07:58.050 [[31mERROR[0m] [create_or_get_topic_buffer:215] Invalid topic name: invalid_topic
+2018-03-09 13:07:58.050 [[31mERROR[0m] [create_publisher:44] failed to create or get topic buffer, topic name: invalid_topic
+[0;32m[       OK ] [mDDSCoreTest.InvalidTopicName (17 ms)
+[0;32m[ RUN      ] [mDDSCoreTest.LargeDataTransfer
+2018-03-09 13:07:58.105 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 67108864 bytes shared memory
+2018-03-09 13:07:58.106 [[32mINFO[0m] [register_topic:162] Registered topic: rt://large/data with ID: 1 at offset: 16448 (aligned size: 1048576)
+2018-03-09 13:07:58.106 [[32mINFO[0m] [set_publisher:163] set_publisher 8179602483811859704 MB_DDF_Tests
+2018-03-09 13:07:58.106 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 MB_DDF_Tests
+[0;32m[       OK ] [mDDSCoreTest.LargeDataTransfer (68 ms)
+[0;32m[----------] [m19 tests from DDSCoreTest (643 ms total)
+
+[0;32m[----------] [m13 tests from EventMultiplexerTest
+[0;32m[ RUN      ] [mEventMultiplexerTest.CreateAndDestroy
+[0;32m[       OK ] [mEventMultiplexerTest.CreateAndDestroy (0 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.AddValidFd
+[0;32m[       OK ] [mEventMultiplexerTest.AddValidFd (0 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.AddInvalidFd
+[0;32m[       OK ] [mEventMultiplexerTest.AddInvalidFd (0 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.RemoveFd
+[0;32m[       OK ] [mEventMultiplexerTest.RemoveFd (0 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.RemoveInvalidFd
+[0;32m[       OK ] [mEventMultiplexerTest.RemoveInvalidFd (0 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.WaitOnceTimeout
+[0;32m[       OK ] [mEventMultiplexerTest.WaitOnceTimeout (100 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.WaitOnceWithEvent
+[0;32m[       OK ] [mEventMultiplexerTest.WaitOnceWithEvent (50 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.WaitOnceMultipleEvents
+[0;32m[       OK ] [mEventMultiplexerTest.WaitOnceMultipleEvents (50 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.ReadDataInCallback
+[0;32m[       OK ] [mEventMultiplexerTest.ReadDataInCallback (50 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.RunLoopAndStop
+[0;32m[       OK ] [mEventMultiplexerTest.RunLoopAndStop (450 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.UpdateExistingFd
+[0;32m[       OK ] [mEventMultiplexerTest.UpdateExistingFd (50 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.EmptyCallback
+[0;32m[       OK ] [mEventMultiplexerTest.EmptyCallback (50 ms)
+[0;32m[ RUN      ] [mEventMultiplexerTest.MultiClientServer
+[0;32m[       OK ] [mEventMultiplexerTest.MultiClientServer (150 ms)
+[0;32m[----------] [m13 tests from EventMultiplexerTest (953 ms total)
+
+[0;32m[----------] [m11 tests from LoggerTest
+[0;32m[ RUN      ] [mLoggerTest.SetLevelAndFilter
+2018-03-09 13:07:59.076 [[32mINFO[0m] [TestBody:62] info message
+[0;32m[       OK ] [mLoggerTest.SetLevelAndFilter (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.AllLevelsOutputWhenSetToTrace
+2018-03-09 13:07:59.077 [[90mTRACE[0m] [TestBody:83] trace test
+2018-03-09 13:07:59.077 [[36mDEBUG[0m] [TestBody:84] debug test
+2018-03-09 13:07:59.077 [[32mINFO[0m] [TestBody:85] info test
+2018-03-09 13:07:59.077 [[33mWARN[0m] [TestBody:86] warn test
+2018-03-09 13:07:59.077 [[31mERROR[0m] [TestBody:87] error test
+[0;32m[       OK ] [mLoggerTest.AllLevelsOutputWhenSetToTrace (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.OnlyFatalWhenSetToFatal
+2018-03-09 13:07:59.077 [[1m[35mFATAL[0m] [TestBody:104] fatal test
+[0;32m[       OK ] [mLoggerTest.OnlyFatalWhenSetToFatal (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.MessageContainsLevelTag
+2018-03-09 13:07:59.077 [[32mINFO[0m] [TestBody:119] level tag test
+[0;32m[       OK ] [mLoggerTest.MessageContainsLevelTag (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.TimestampEnabled
+2018-03-09 13:07:59.077 [[32mINFO[0m] [TestBody:132] timestamp test
+[0;32m[       OK ] [mLoggerTest.TimestampEnabled (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.MultipleArgsOutput
+2018-03-09 13:07:59.077 [[32mINFO[0m] [TestBody:159] values: x=42, name=test
+[0;32m[       OK ] [mLoggerTest.MultipleArgsOutput (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.Singleton
+[0;32m[       OK ] [mLoggerTest.Singleton (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.ConfigMacros
+2018-03-09 13:07:59.077 [[36mDEBUG[0m] [TestBody:185] after set debug
+[0;32m[       OK ] [mLoggerTest.ConfigMacros (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.TimestampMacros
+[0;32m[       OK ] [mLoggerTest.TimestampMacros (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.EmptyMessageNotOutput
+2018-03-09 13:07:59.077 [[32mINFO[0m] [TestBody:214] before
+[0;32m[       OK ] [mLoggerTest.EmptyMessageNotOutput (0 ms)
+[0;32m[ RUN      ] [mLoggerTest.ClearCallbacks
+2018-03-09 13:07:59.077 [[32mINFO[0m] [TestBody:237] test message
+2018-03-09 13:07:59.077 [[32mINFO[0m] [TestBody:244] after clear
+[0;32m[       OK ] [mLoggerTest.ClearCallbacks (0 ms)
+[0;32m[----------] [m11 tests from LoggerTest (0 ms total)
+
+[0;32m[----------] [m23 tests from LoggerExtensionsTest
+[0;32m[ RUN      ] [mLoggerExtensionsTest.DisplayWidthASCII
+[0;32m[       OK ] [mLoggerExtensionsTest.DisplayWidthASCII (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.DisplayWidthCJK
+[0;32m[       OK ] [mLoggerExtensionsTest.DisplayWidthCJK (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.DisplayWidthMixed
+[0;32m[       OK ] [mLoggerExtensionsTest.DisplayWidthMixed (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.DisplayWidthSpecial
+[0;32m[       OK ] [mLoggerExtensionsTest.DisplayWidthSpecial (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.DisplayWidthInvalidUTF8
+[0;32m[       OK ] [mLoggerExtensionsTest.DisplayWidthInvalidUTF8 (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintBlankLines
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_blank_lines:117] 
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintBlankLines (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintSeparator
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_separator:129] ----------------------------------------
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_separator:129] ==========
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_separator:129] 
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintSeparator (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintTitle
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:155] [33m========================================[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:166] [33m=              Test Title              =[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:167] [33m========================================[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:155] [33m----------------------------------------[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:166] [33m-               涓枃鏍囬               -[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:167] [33m----------------------------------------[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:155] [33m**********[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:166] [33m*   X    *[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:167] [33m**********[0m
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintTitle (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintTitleWithCJK
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:155] [33m========================================[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:166] [33m=               绯荤粺鍚姩               =[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:167] [33m========================================[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:155] [33m------------------------------[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:166] [33m-          娴嬭瘯瀹屾垚          -[0m
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_title:167] [33m------------------------------[0m
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintTitleWithCJK (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintProgress
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_progress:188] Loading [--------------------]   0%
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_progress:188] Loading [##########----------]  50%
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_progress:188] Loading [####################] 100%
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintProgress (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintProgressBoundary
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_progress:188] Task [--------------------------------------------------]   0%
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_progress:188] Task [##################################################] 100%
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_progress:188] Task [----------]   0%
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_progress:188] Task [####################################################################################################] 100%
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintProgressBoundary (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintBoxedText
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_boxed_text:206] *********
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_boxed_text:207] * Hello *
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_boxed_text:208] *********
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_boxed_text:206] #########
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_boxed_text:207] # World #
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_boxed_text:208] #########
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintBoxedText (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintTimestampMarker
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_timestamp_marker:230] 鈴?TIMESTAMP: 2018-03-09 13:07:59.077 - Start processing
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_timestamp_marker:230] 鈴?TIMESTAMP: 2018-03-09 13:07:59.077 - Complete
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintTimestampMarker (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintDoubleSeparator
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_double_separator:240] ========================================
+2018-03-09 13:07:59.077 [[33mWARN[0m] [print_double_separator:240] ================================================================================
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintDoubleSeparator (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.PrintDottedSeparator
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_dotted_separator:250] ........................................
+[0;32m[       OK ] [mLoggerExtensionsTest.PrintDottedSeparator (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.MacroLogBlankLine
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.077 [[32mINFO[0m] [print_blank_lines:117] 
+[0;32m[       OK ] [mLoggerExtensionsTest.MacroLogBlankLine (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.MacroLogSeparator
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_separator:129] --------------------------------------------------------------------------------
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_separator:129] ========================================
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_double_separator:240] ================================================================================
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_double_separator:240] ============================================================
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_dotted_separator:250] ................................................................................
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_dotted_separator:250] ..................................................
+[0;32m[       OK ] [mLoggerExtensionsTest.MacroLogSeparator (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.MacroLogTitle
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:155] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:166] [33m=                                 Main Section                                 =[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:167] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:155] [33m----------------------------------------[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:166] [33m-             Sub Section              -[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:167] [33m----------------------------------------[0m
+2018-03-09 13:07:59.078 [[33mWARN[0m] [print_title:155] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[33mWARN[0m] [print_title:166] [33m=                               Warning Section                                =[0m
+2018-03-09 13:07:59.078 [[33mWARN[0m] [print_title:167] [33m================================================================================[0m
+[0;32m[       OK ] [mLoggerExtensionsTest.MacroLogTitle (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.MacroLogProgress
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_progress:188] Initializing [--------------------------------------------------]   0%
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_progress:188] Processing [#########################-------------------------]  50%
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_progress:188] Complete [##################################################] 100%
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_progress:188] Custom Width [######################--------]  75%
+[0;32m[       OK ] [mLoggerExtensionsTest.MacroLogProgress (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.MacroLogBox
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:206] *********************
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:207] * Important Message *
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:208] *********************
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:206] ##############
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:207] # Custom Box #
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:208] ##############
+2018-03-09 13:07:59.078 [[31mERROR[0m] [print_boxed_text:206] *****************
+2018-03-09 13:07:59.078 [[31mERROR[0m] [print_boxed_text:207] * Error Message *
+2018-03-09 13:07:59.078 [[31mERROR[0m] [print_boxed_text:208] *****************
+[0;32m[       OK ] [mLoggerExtensionsTest.MacroLogBox (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.MacroLogTimestamp
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_timestamp_marker:230] 鈴?TIMESTAMP: 2018-03-09 13:07:59.078
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_timestamp_marker:230] 鈴?TIMESTAMP: 2018-03-09 13:07:59.078 - Event occurred
+[0;32m[       OK ] [mLoggerExtensionsTest.MacroLogTimestamp (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.DifferentLogLevels
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:155] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:166] [33m=                                  Info Title                                  =[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:167] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[33mWARN[0m] [print_title:155] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[33mWARN[0m] [print_title:166] [33m=                                  Warn Title                                  =[0m
+2018-03-09 13:07:59.078 [[33mWARN[0m] [print_title:167] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[31mERROR[0m] [print_title:155] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[31mERROR[0m] [print_title:166] [33m=                                 Error Title                                  =[0m
+2018-03-09 13:07:59.078 [[31mERROR[0m] [print_title:167] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[31mERROR[0m] [print_separator:129] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[0;32m[       OK ] [mLoggerExtensionsTest.DifferentLogLevels (0 ms)
+[0;32m[ RUN      ] [mLoggerExtensionsTest.CombinedUsage
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_double_separator:240] ================================================================================
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:155] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:166] [33m=                              Application Start                               =[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:167] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_double_separator:240] ================================================================================
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_progress:188] Loading modules [--------------------------------------------------]   0%
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_progress:188] Loading modules [#########################-------------------------]  50%
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_progress:188] Loading modules [##################################################] 100%
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:206] ****************
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:207] * System Ready *
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_boxed_text:208] ****************
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_timestamp_marker:230] 鈴?TIMESTAMP: 2018-03-09 13:07:59.078 - Initialization complete
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_separator:129] --------------------------------------------------------------------------------
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:155] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:166] [33m=                               Processing Data                                =[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_title:167] [33m================================================================================[0m
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_separator:129] --------------------------------------------------------------------------------
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_blank_lines:117] 
+2018-03-09 13:07:59.078 [[32mINFO[0m] [print_dotted_separator:250] ................................................................................
+[0;32m[       OK ] [mLoggerExtensionsTest.CombinedUsage (0 ms)
+[0;32m[----------] [m23 tests from LoggerExtensionsTest (1 ms total)
+
+[0;32m[----------] [m14 tests from MD5
+[0;32m[ RUN      ] [mMD5.EmptyString
+[0;32m[       OK ] [mMD5.EmptyString (0 ms)
+[0;32m[ RUN      ] [mMD5.SingleChar
+[0;32m[       OK ] [mMD5.SingleChar (0 ms)
+[0;32m[ RUN      ] [mMD5.ShortString
+[0;32m[       OK ] [mMD5.ShortString (0 ms)
+[0;32m[ RUN      ] [mMD5.LongerString
+[0;32m[       OK ] [mMD5.LongerString (0 ms)
+[0;32m[ RUN      ] [mMD5.Alphabet
+[0;32m[       OK ] [mMD5.Alphabet (0 ms)
+[0;32m[ RUN      ] [mMD5.Alphanumeric
+[0;32m[       OK ] [mMD5.Alphanumeric (0 ms)
+[0;32m[ RUN      ] [mMD5.MultiUpdate
+[0;32m[       OK ] [mMD5.MultiUpdate (0 ms)
+[0;32m[ RUN      ] [mMD5.ChunkedUpdate
+[0;32m[       OK ] [mMD5.ChunkedUpdate (0 ms)
+[0;32m[ RUN      ] [mMD5.HashMethod
+[0;32m[       OK ] [mMD5.HashMethod (0 ms)
+[0;32m[ RUN      ] [mMD5.HashMethodLong
+[0;32m[       OK ] [mMD5.HashMethodLong (0 ms)
+[0;32m[ RUN      ] [mMD5.LargeInput
+[0;32m[       OK ] [mMD5.LargeInput (0 ms)
+[0;32m[ RUN      ] [mMD5.BinaryData
+[0;32m[       OK ] [mMD5.BinaryData (0 ms)
+[0;32m[ RUN      ] [mMD5.Reset
+[0;32m[       OK ] [mMD5.Reset (0 ms)
+[0;32m[ RUN      ] [mMD5.StaticHash
+[0;32m[       OK ] [mMD5.StaticHash (0 ms)
+[0;32m[----------] [m14 tests from MD5 (0 ms total)
+
+[0;32m[----------] [m7 tests from MessageCRC32
+[0;32m[ RUN      ] [mMessageCRC32.AlgorithmVerification
+[0;32m[       OK ] [mMessageCRC32.AlgorithmVerification (0 ms)
+[0;32m[ RUN      ] [mMessageCRC32.KnownValue
+[0;32m[       OK ] [mMessageCRC32.KnownValue (0 ms)
+[0;32m[ RUN      ] [mMessageCRC32.EmptyData
+[0;32m[       OK ] [mMessageCRC32.EmptyData (0 ms)
+[0;32m[ RUN      ] [mMessageCRC32.NormalModeBasic
+[0;32m[       OK ] [mMessageCRC32.NormalModeBasic (0 ms)
+[0;32m[ RUN      ] [mMessageCRC32.NormalModeConsistency
+[0;32m[       OK ] [mMessageCRC32.NormalModeConsistency (0 ms)
+[0;32m[ RUN      ] [mMessageCRC32.NormalModeEmptyData
+[0;32m[       OK ] [mMessageCRC32.NormalModeEmptyData (0 ms)
+[0;32m[ RUN      ] [mMessageCRC32.CalculateChecksumWithMode
+[0;32m[       OK ] [mMessageCRC32.CalculateChecksumWithMode (0 ms)
+[0;32m[----------] [m7 tests from MessageCRC32 (0 ms total)
+
+[0;32m[----------] [m3 tests from MessageConstruct
+[0;32m[ RUN      ] [mMessageConstruct.BasicMessage
+[0;32m[       OK ] [mMessageConstruct.BasicMessage (0 ms)
+[0;32m[ RUN      ] [mMessageConstruct.ChecksumVerification
+[0;32m[       OK ] [mMessageConstruct.ChecksumVerification (0 ms)
+[0;32m[ RUN      ] [mMessageConstruct.ZeroData
+[0;32m[       OK ] [mMessageConstruct.ZeroData (0 ms)
+[0;32m[----------] [m3 tests from MessageConstruct (0 ms total)
+
+[0;32m[----------] [m1 test from MessageData
+[0;32m[ RUN      ] [mMessageData.DataAccess
+[0;32m[       OK ] [mMessageData.DataAccess (0 ms)
+[0;32m[----------] [m1 test from MessageData (0 ms total)
+
+[0;32m[----------] [m1 test from MessageTimestamp
+[0;32m[ RUN      ] [mMessageTimestamp.TimestampSet
+[0;32m[       OK ] [mMessageTimestamp.TimestampSet (0 ms)
+[0;32m[----------] [m1 test from MessageTimestamp (0 ms total)
+
+[0;32m[----------] [m2 tests from MessageSize
+[0;32m[ RUN      ] [mMessageSize.TotalSize
+[0;32m[       OK ] [mMessageSize.TotalSize (0 ms)
+[0;32m[ RUN      ] [mMessageSize.MsgSizeMethod
+[0;32m[       OK ] [mMessageSize.MsgSizeMethod (0 ms)
+[0;32m[----------] [m2 tests from MessageSize (0 ms total)
+
+[0;32m[----------] [m1 test from MessageBoundary
+[0;32m[ RUN      ] [mMessageBoundary.LargeDataSize
+[0;32m[       OK ] [mMessageBoundary.LargeDataSize (0 ms)
+[0;32m[----------] [m1 test from MessageBoundary (0 ms total)
+
+[0;32m[----------] [m3 tests from MessageUpdate
+[0;32m[ RUN      ] [mMessageUpdate.UpdateTimestamp
+[0;32m[       OK ] [mMessageUpdate.UpdateTimestamp (10 ms)
+[0;32m[ RUN      ] [mMessageUpdate.UpdateWithoutChecksum
+[0;32m[       OK ] [mMessageUpdate.UpdateWithoutChecksum (0 ms)
+[0;32m[ RUN      ] [mMessageUpdate.UpdateEmptyData
+[0;32m[       OK ] [mMessageUpdate.UpdateEmptyData (10 ms)
+[0;32m[----------] [m3 tests from MessageUpdate (20 ms total)
+
+[0;32m[----------] [m4 tests from MessageChecksum
+[0;32m[ RUN      ] [mMessageChecksum.VerificationFailure
+[0;32m[       OK ] [mMessageChecksum.VerificationFailure (0 ms)
+[0;32m[ RUN      ] [mMessageChecksum.VerificationFailureMultipleBytes
+[0;32m[       OK ] [mMessageChecksum.VerificationFailureMultipleBytes (0 ms)
+[0;32m[ RUN      ] [mMessageChecksum.WrongChecksumValue
+[0;32m[       OK ] [mMessageChecksum.WrongChecksumValue (0 ms)
+[0;32m[ RUN      ] [mMessageChecksum.ZeroChecksumWithData
+[0;32m[       OK ] [mMessageChecksum.ZeroChecksumWithData (0 ms)
+[0;32m[----------] [m4 tests from MessageChecksum (0 ms total)
+
+[0;32m[----------] [m13 tests from NullTransportTest
+[0;32m[ RUN      ] [mNullTransportTest.OpenAlwaysSucceeds
+[0;32m[       OK ] [mNullTransportTest.OpenAlwaysSucceeds (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.CloseDoesNothing
+[0;32m[       OK ] [mNullTransportTest.CloseDoesNothing (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.GetMappedBaseReturnsNull
+[0;32m[       OK ] [mNullTransportTest.GetMappedBaseReturnsNull (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.GetMappedLengthReturnsZero
+[0;32m[       OK ] [mNullTransportTest.GetMappedLengthReturnsZero (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.ReadReg32ReturnsFalse
+[0;32m[       OK ] [mNullTransportTest.ReadReg32ReturnsFalse (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.WriteReg32ReturnsFalse
+[0;32m[       OK ] [mNullTransportTest.WriteReg32ReturnsFalse (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.WaitEventReturnsZero
+[0;32m[       OK ] [mNullTransportTest.WaitEventReturnsZero (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.GetEventFdReturnsInvalid
+[0;32m[       OK ] [mNullTransportTest.GetEventFdReturnsInvalid (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.SetCallbacksAcceptButIgnore
+[0;32m[       OK ] [mNullTransportTest.SetCallbacksAcceptButIgnore (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.ContinuousOperationsReturnFalse
+[0;32m[       OK ] [mNullTransportTest.ContinuousOperationsReturnFalse (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.XferReturnsFalse
+[0;32m[       OK ] [mNullTransportTest.XferReturnsFalse (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.UsedAsPlaceholderInAggregation
+[0;32m[       OK ] [mNullTransportTest.UsedAsPlaceholderInAggregation (0 ms)
+[0;32m[ RUN      ] [mNullTransportTest.LifecycleTest
+[0;32m[       OK ] [mNullTransportTest.LifecycleTest (0 ms)
+[0;32m[----------] [m13 tests from NullTransportTest (0 ms total)
+
+[0;32m[----------] [m5 tests from PubAndSubTest
+[0;32m[ RUN      ] [mPubAndSubTest.BasicConstruction
+2018-03-09 13:07:59.112 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+[0;32m[       OK ] [mPubAndSubTest.BasicConstruction (17 ms)
+[0;32m[ RUN      ] [mPubAndSubTest.WriteInterface
+2018-03-09 13:07:59.130 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+[0;32m[       OK ] [mPubAndSubTest.WriteInterface (17 ms)
+[0;32m[ RUN      ] [mPubAndSubTest.ReadInterface
+2018-03-09 13:07:59.147 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+[0;32m[       OK ] [mPubAndSubTest.ReadInterface (17 ms)
+[0;32m[ RUN      ] [mPubAndSubTest.NullTransportOperations
+2018-03-09 13:07:59.164 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+[0;32m[       OK ] [mPubAndSubTest.NullTransportOperations (17 ms)
+[0;32m[ RUN      ] [mPubAndSubTest.DDSWithNullTransport
+2018-03-09 13:07:59.182 [[32mINFO[0m] [initialize:175] DDSCore initialized successfully with 16777216 bytes shared memory
+[0;32m[       OK ] [mPubAndSubTest.DDSWithNullTransport (17 ms)
+[0;32m[----------] [m5 tests from PubAndSubTest (86 ms total)
+
+[0;32m[----------] [m24 tests from PubSubTest
+[0;32m[ RUN      ] [mPubSubTest.PublisherBasicPublish
+2018-03-09 13:07:59.189 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.PublisherBasicPublish (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PublisherWriteAlias
+2018-03-09 13:07:59.194 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.PublisherWriteAlias (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PublisherBeginMessageCommit
+2018-03-09 13:07:59.199 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.PublisherBeginMessageCommit (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PublisherBeginMessageCancel
+2018-03-09 13:07:59.203 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.PublisherBeginMessageCancel (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PublisherPublishFill
+2018-03-09 13:07:59.207 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.PublisherPublishFill (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PublisherPublishFillZeroReturns
+2018-03-09 13:07:59.212 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.212 [[31mERROR[0m] [publish_fill:102] Publisher publisher_13961563670858605369 publish_fill invalid written size: 0
+[0;32m[       OK ] [mPubSubTest.PublisherPublishFillZeroReturns (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberSyncRead
+2018-03-09 13:07:59.216 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.216 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 test_sub
+[0;32m[       OK ] [mPubSubTest.SubscriberSyncRead (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberSyncReadNext
+2018-03-09 13:07:59.221 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.221 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 subscriber_2033547394902184115
+[0;32m[       OK ] [mPubSubTest.SubscriberSyncReadNext (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberAsyncCallback
+2018-03-09 13:07:59.225 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.326 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 async_sub
+[0;32m[       OK ] [mPubSubTest.SubscriberAsyncCallback (105 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberDoubleSubscribeFails
+2018-03-09 13:07:59.330 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.330 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 subscriber_9436789712440557776
+[0;32m[       OK ] [mPubSubTest.SubscriberDoubleSubscribeFails (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberReadWithoutSubscribe
+2018-03-09 13:07:59.335 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.SubscriberReadWithoutSubscribe (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PubSubMultipleSubscribers
+2018-03-09 13:07:59.339 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.339 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 sub1
+2018-03-09 13:07:59.339 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 sub2
+[0;32m[       OK ] [mPubSubTest.PubSubMultipleSubscribers (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PubSubLargeMessage
+2018-03-09 13:07:59.344 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.344 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 subscriber_4262120531549874762
+[0;32m[       OK ] [mPubSubTest.PubSubLargeMessage (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PubSubStressTest
+2018-03-09 13:07:59.348 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.550 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 subscriber_5649925656659147191
+[0;32m[       OK ] [mPubSubTest.PubSubStressTest (205 ms)
+[0;32m[ RUN      ] [mPubSubTest.PublisherNullBuffer
+2018-03-09 13:07:59.554 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.PublisherNullBuffer (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberUnsubscribeWithoutSubscribe
+2018-03-09 13:07:59.558 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.SubscriberUnsubscribeWithoutSubscribe (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.PublisherPublishEmptyData
+2018-03-09 13:07:59.563 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+[0;32m[       OK ] [mPubSubTest.PublisherPublishEmptyData (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberDdsReadTimeoutNotSupported
+2018-03-09 13:07:59.567 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.568 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 timeout_sub
+[0;32m[       OK ] [mPubSubTest.SubscriberDdsReadTimeoutNotSupported (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberWaitForMessageTimeout
+2018-03-09 13:07:59.572 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.672 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 wait_sub
+[0;32m[       OK ] [mPubSubTest.SubscriberWaitForMessageTimeout (104 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberWaitForMessageSuccess
+2018-03-09 13:07:59.677 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.677 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 wait_success_sub
+[0;32m[       OK ] [mPubSubTest.SubscriberWaitForMessageSuccess (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberBindToCpu
+2018-03-09 13:07:59.681 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.681 [[31mERROR[0m] [bind_to_cpu:177] Worker thread is not running, cannot bind to CPU
+2018-03-09 13:07:59.681 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 cpu_bind_sub
+[0;32m[       OK ] [mPubSubTest.SubscriberBindToCpu (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.SubscriberBindToInvalidCpu
+2018-03-09 13:07:59.686 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+2018-03-09 13:07:59.686 [[31mERROR[0m] [bind_to_cpu:171] Invalid CPU ID: 9999, available CPUs: 0-7
+2018-03-09 13:07:59.686 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 invalid_cpu_sub
+[0;32m[       OK ] [mPubSubTest.SubscriberBindToInvalidCpu (4 ms)
+[0;32m[ RUN      ] [mPubSubTest.MessageLossDetection
+2018-03-09 13:07:59.690 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+Detected message loss: 183 messages lost (317/500 received)
+2018-03-09 13:07:59.995 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 loss_detect_sub
+[0;32m[       OK ] [mPubSubTest.MessageLossDetection (309 ms)
+[0;32m[ RUN      ] [mPubSubTest.SlowSubscriberMessageLoss
+2018-03-09 13:08:00.000 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic with ID: 1 at offset: 16448 (aligned size: 262144)
+Slow subscriber lost messages: 2/50
+2018-03-09 13:08:00.501 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 slow_sub
+2018-03-09 13:08:00.501 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 fast_sub
+[0;32m[       OK ] [mPubSubTest.SlowSubscriberMessageLoss (505 ms)
+[0;32m[----------] [m24 tests from PubSubTest (1315 ms total)
+
+[0;32m[----------] [m36 tests from RingBufferTest
+[0;32m[ RUN      ] [mRingBufferTest.BasicPublishAndRead
+[0;32m[       OK ] [mRingBufferTest.BasicPublishAndRead (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.MultipleMessages
+[0;32m[       OK ] [mRingBufferTest.MultipleMessages (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.MultiSubscriberIsolation
+[0;32m[       OK ] [mRingBufferTest.MultiSubscriberIsolation (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.SubscriberIndependentPosition
+[0;32m[       OK ] [mRingBufferTest.SubscriberIndependentPosition (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.ZeroCopyReserveCommit
+[0;32m[       OK ] [mRingBufferTest.ZeroCopyReserveCommit (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.ZeroCopyAbort
+[0;32m[       OK ] [mRingBufferTest.ZeroCopyAbort (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.WrapAround
+[0;32m[       OK ] [mRingBufferTest.WrapAround (1 ms)
+[0;32m[ RUN      ] [mRingBufferTest.WrapAroundOverwritesOldData
+[0;32m[       OK ] [mRingBufferTest.WrapAroundOverwritesOldData (9 ms)
+[0;32m[ RUN      ] [mRingBufferTest.ReadLatest
+[0;32m[       OK ] [mRingBufferTest.ReadLatest (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.EmptyMessage
+[0;32m[       OK ] [mRingBufferTest.EmptyMessage (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.LargeMessage
+[0;32m[       OK ] [mRingBufferTest.LargeMessage (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.BufferFull
+[0;32m[       OK ] [mRingBufferTest.BufferFull (1 ms)
+[0;32m[ RUN      ] [mRingBufferTest.SubscriberRegistration
+[0;32m[       OK ] [mRingBufferTest.SubscriberRegistration (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.Unsubscribe
+2018-03-09 13:08:00.514 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 temp_sub
+[0;32m[       OK ] [mRingBufferTest.Unsubscribe (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.ConcurrentPublish
+[0;32m[       OK ] [mRingBufferTest.ConcurrentPublish (6 ms)
+[0;32m[ RUN      ] [mRingBufferTest.ReadExpectedBasic
+[0;32m[       OK ] [mRingBufferTest.ReadExpectedBasic (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.ReadExpectedSequenceMismatch
+[0;32m[       OK ] [mRingBufferTest.ReadExpectedSequenceMismatch (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.ReadExpectedNoMessage
+[0;32m[       OK ] [mRingBufferTest.ReadExpectedNoMessage (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.GetUnreadCountBasic
+[0;32m[       OK ] [mRingBufferTest.GetUnreadCountBasic (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.GetUnreadCountAfterRead
+[0;32m[       OK ] [mRingBufferTest.GetUnreadCountAfterRead (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.GetUnreadCountMultipleSubscribers
+[0;32m[       OK ] [mRingBufferTest.GetUnreadCountMultipleSubscribers (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.WaitForMessageTimeout
+[0;32m[       OK ] [mRingBufferTest.WaitForMessageTimeout (100 ms)
+[0;32m[ RUN      ] [mRingBufferTest.WaitForMessageSuccess
+[0;32m[       OK ] [mRingBufferTest.WaitForMessageSuccess (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.WaitForMessageAsync
+[0;32m[       OK ] [mRingBufferTest.WaitForMessageAsync (100 ms)
+[0;32m[ RUN      ] [mRingBufferTest.GetStatisticsBasic
+[0;32m[       OK ] [mRingBufferTest.GetStatisticsBasic (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.GetStatisticsAfterWrapAround
+[0;32m[       OK ] [mRingBufferTest.GetStatisticsAfterWrapAround (1 ms)
+[0;32m[ RUN      ] [mRingBufferTest.GetStatisticsAfterUnregister
+2018-03-09 13:08:00.723 [[32mINFO[0m] [unregister_subscriber:269] unregister_subscriber 0 sub1_unregister
+[0;32m[       OK ] [mRingBufferTest.GetStatisticsAfterUnregister (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.EmptyAndFull
+[0;32m[       OK ] [mRingBufferTest.EmptyAndFull (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.AvailableSpaceAndData
+[0;32m[       OK ] [mRingBufferTest.AvailableSpaceAndData (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.FullBufferBehavior
+[0;32m[       OK ] [mRingBufferTest.FullBufferBehavior (11 ms)
+[0;32m[ RUN      ] [mRingBufferTest.SetAndRemovePublisher
+2018-03-09 13:08:00.734 [[32mINFO[0m] [set_publisher:163] set_publisher 12345 TestPublisher
+2018-03-09 13:08:00.734 [[32mINFO[0m] [remove_publisher:170] remove_publisher
+2018-03-09 13:08:00.734 [[32mINFO[0m] [set_publisher:163] set_publisher 99999 AnotherPublisher
+[0;32m[       OK ] [mRingBufferTest.SetAndRemovePublisher (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.SetPublisherEmptyName
+2018-03-09 13:08:00.734 [[32mINFO[0m] [set_publisher:163] set_publisher 1 
+[0;32m[       OK ] [mRingBufferTest.SetPublisherEmptyName (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.NotifySubscribers
+[0;32m[       OK ] [mRingBufferTest.NotifySubscribers (50 ms)
+[0;32m[ RUN      ] [mRingBufferTest.NotifyWithoutSubscribers
+[0;32m[       OK ] [mRingBufferTest.NotifyWithoutSubscribers (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.IsChecksumEnabled
+[0;32m[       OK ] [mRingBufferTest.IsChecksumEnabled (0 ms)
+[0;32m[ RUN      ] [mRingBufferTest.ChecksumDisabled
+[0;32m[       OK ] [mRingBufferTest.ChecksumDisabled (0 ms)
+[0;32m[----------] [m36 tests from RingBufferTest (282 ms total)
+
+[0;32m[----------] [m6 tests from LogSchemaTest
+[0;32m[ RUN      ] [mLogSchemaTest.AddField
+[0;32m[       OK ] [mLogSchemaTest.AddField (0 ms)
+[0;32m[ RUN      ] [mLogSchemaTest.AddFieldAt
+[0;32m[       OK ] [mLogSchemaTest.AddFieldAt (0 ms)
+[0;32m[ RUN      ] [mLogSchemaTest.AddBitFieldAt
+[0;32m[       OK ] [mLogSchemaTest.AddBitFieldAt (0 ms)
+[0;32m[ RUN      ] [mLogSchemaTest.EmptySchemaInvalid
+[0;32m[       OK ] [mLogSchemaTest.EmptySchemaInvalid (0 ms)
+[0;32m[ RUN      ] [mLogSchemaTest.RecordSizeCalculation
+[0;32m[       OK ] [mLogSchemaTest.RecordSizeCalculation (0 ms)
+[0;32m[ RUN      ] [mLogSchemaTest.SerializeAndDeserialize
+[0;32m[       OK ] [mLogSchemaTest.SerializeAndDeserialize (0 ms)
+[0;32m[----------] [m6 tests from LogSchemaTest (0 ms total)
+
+[0;32m[----------] [m6 tests from LogRecordBuilderTest
+[0;32m[ RUN      ] [mLogRecordBuilderTest.BasicWrite
+[0;32m[       OK ] [mLogRecordBuilderTest.BasicWrite (0 ms)
+[0;32m[ RUN      ] [mLogRecordBuilderTest.WriteAllTypes
+[0;32m[       OK ] [mLogRecordBuilderTest.WriteAllTypes (0 ms)
+[0;32m[ RUN      ] [mLogRecordBuilderTest.WriteBytes
+[0;32m[       OK ] [mLogRecordBuilderTest.WriteBytes (0 ms)
+[0;32m[ RUN      ] [mLogRecordBuilderTest.Reset
+[0;32m[       OK ] [mLogRecordBuilderTest.Reset (0 ms)
+[0;32m[ RUN      ] [mLogRecordBuilderTest.CapacityExceeded
+[0;32m[       OK ] [mLogRecordBuilderTest.CapacityExceeded (0 ms)
+[0;32m[ RUN      ] [mLogRecordBuilderTest.DataAccess
+[0;32m[       OK ] [mLogRecordBuilderTest.DataAccess (0 ms)
+[0;32m[----------] [m6 tests from LogRecordBuilderTest (0 ms total)
+
+[0;32m[----------] [m6 tests from SelfDescribingLogWriterTest
+[0;32m[ RUN      ] [mSelfDescribingLogWriterTest.CreateAndOpen
+[0;32m[       OK ] [mSelfDescribingLogWriterTest.CreateAndOpen (0 ms)
+[0;32m[ RUN      ] [mSelfDescribingLogWriterTest.AppendRecord
+[0;32m[       OK ] [mSelfDescribingLogWriterTest.AppendRecord (0 ms)
+[0;32m[ RUN      ] [mSelfDescribingLogWriterTest.AppendRawRecord
+[0;32m[       OK ] [mSelfDescribingLogWriterTest.AppendRawRecord (0 ms)
+[0;32m[ RUN      ] [mSelfDescribingLogWriterTest.RecordSize
+[0;32m[       OK ] [mSelfDescribingLogWriterTest.RecordSize (0 ms)
+[0;32m[ RUN      ] [mSelfDescribingLogWriterTest.ReopenExistingFile
+[0;32m[       OK ] [mSelfDescribingLogWriterTest.ReopenExistingFile (0 ms)
+[0;32m[ RUN      ] [mSelfDescribingLogWriterTest.EmptyPathFails
+[0;32m[       OK ] [mSelfDescribingLogWriterTest.EmptyPathFails (0 ms)
+[0;32m[----------] [m6 tests from SelfDescribingLogWriterTest (0 ms total)
+
+[0;32m[----------] [m2 tests from SelfDescribingLogIntegration
+[0;32m[ RUN      ] [mSelfDescribingLogIntegration.FullWorkflow
+[0;32m[       OK ] [mSelfDescribingLogIntegration.FullWorkflow (0 ms)
+[0;32m[ RUN      ] [mSelfDescribingLogIntegration.MultipleDataTypes
+[0;32m[       OK ] [mSelfDescribingLogIntegration.MultipleDataTypes (0 ms)
+[0;32m[----------] [m2 tests from SelfDescribingLogIntegration (0 ms total)
+
+[0;32m[----------] [m10 tests from SemaphoreGuardTest
+[0;32m[ RUN      ] [mSemaphoreGuardTest.BasicAcquireRelease
+[0;32m[       OK ] [mSemaphoreGuardTest.BasicAcquireRelease (0 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.MultipleGuardsSequential
+[0;32m[       OK ] [mSemaphoreGuardTest.MultipleGuardsSequential (0 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.NullSemaphore
+2018-03-09 13:08:00.786 [[31mERROR[0m] [SemaphoreGuard:19] SemaphoreGuard construct failed: sem is nullptr
+[0;32m[       OK ] [mSemaphoreGuardTest.NullSemaphore (0 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.MoveConstructor
+[0;32m[       OK ] [mSemaphoreGuardTest.MoveConstructor (0 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.MoveAssignment
+[0;32m[       OK ] [mSemaphoreGuardTest.MoveAssignment (0 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.EarlyRelease
+[0;32m[       OK ] [mSemaphoreGuardTest.EarlyRelease (0 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.DoubleRelease
+[0;32m[       OK ] [mSemaphoreGuardTest.DoubleRelease (0 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.MultiThreadAcquire
+[0;32m[       OK ] [mSemaphoreGuardTest.MultiThreadAcquire (30 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.SemaphoreValueProtection
+[0;32m[       OK ] [mSemaphoreGuardTest.SemaphoreValueProtection (0 ms)
+[0;32m[ RUN      ] [mSemaphoreGuardTest.ExceptionSafety
+[0;32m[       OK ] [mSemaphoreGuardTest.ExceptionSafety (0 ms)
+[0;32m[----------] [m10 tests from SemaphoreGuardTest (31 ms total)
+
+[0;32m[----------] [m8 tests from SharedMemoryTest
+[0;32m[ RUN      ] [mSharedMemoryTest.CreateAndGetAddress
+[0;32m[       OK ] [mSharedMemoryTest.CreateAndGetAddress (0 ms)
+[0;32m[ RUN      ] [mSharedMemoryTest.OpenExisting
+[0;32m[       OK ] [mSharedMemoryTest.OpenExisting (0 ms)
+[0;32m[ RUN      ] [mSharedMemoryTest.WriteAndRead
+[0;32m[       OK ] [mSharedMemoryTest.WriteAndRead (0 ms)
+[0;32m[ RUN      ] [mSharedMemoryTest.LargeDataTransfer
+[0;32m[       OK ] [mSharedMemoryTest.LargeDataTransfer (111 ms)
+[0;32m[ RUN      ] [mSharedMemoryTest.GetSemaphore
+[0;32m[       OK ] [mSharedMemoryTest.GetSemaphore (0 ms)
+[0;32m[ RUN      ] [mSharedMemoryTest.RecreateAfterUnlink
+[0;32m[       OK ] [mSharedMemoryTest.RecreateAfterUnlink (0 ms)
+[0;32m[ RUN      ] [mSharedMemoryTest.Alignment
+[0;32m[       OK ] [mSharedMemoryTest.Alignment (0 ms)
+[0;32m[ RUN      ] [mSharedMemoryTest.CrossProcessSharing
+[0;32m[       OK ] [mSharedMemoryTest.CrossProcessSharing (0 ms)
+[0;32m[----------] [m8 tests from SharedMemoryTest (112 ms total)
+
+[0;32m[----------] [m14 tests from SystemTimerTest
+[0;32m[ RUN      ] [mSystemTimerTest.StartAndStop
+[0;32m[       OK ] [mSystemTimerTest.StartAndStop (150 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.DifferentPeriods
+[0;32m[       OK ] [mSystemTimerTest.DifferentPeriods (100 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.PeriodParsing
+[0;32m[       OK ] [mSystemTimerTest.PeriodParsing (0 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.ResetTimer
+[0;32m[       OK ] [mSystemTimerTest.ResetTimer (120 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.WorkerHandle
+[0;32m[       OK ] [mSystemTimerTest.WorkerHandle (0 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.CustomOptions
+[0;32m[       OK ] [mSystemTimerTest.CustomOptions (50 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.UserData
+[0;32m[       OK ] [mSystemTimerTest.UserData (50 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.MultipleStopSafe
+[0;32m[       OK ] [mSystemTimerTest.MultipleStopSafe (0 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.CallbackTiming
+[0;32m[       OK ] [mSystemTimerTest.CallbackTiming (100 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.InvalidPeriodString
+[0;32m[       OK ] [mSystemTimerTest.InvalidPeriodString (0 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.EdgeCasePeriodStrings
+[0;32m[       OK ] [mSystemTimerTest.EdgeCasePeriodStrings (0 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.TimerPrecision
+Timer precision test: avg_interval=49999us, max_jitter=5us
+[0;32m[       OK ] [mSystemTimerTest.TimerPrecision (600 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.TimerJitterStatistics
+Jitter statistics (20ms period):
+  Samples: 49
+  Avg jitter: 2 us
+  Max jitter: 52 us
+  Std dev: 10 us
+[0;32m[       OK ] [mSystemTimerTest.TimerJitterStatistics (1005 ms)
+[0;32m[ RUN      ] [mSystemTimerTest.LongRunningStability
+[0;32m[       OK ] [mSystemTimerTest.LongRunningStability (600 ms)
+[0;32m[----------] [m14 tests from SystemTimerTest (2779 ms total)
+
+[0;32m[----------] [m16 tests from TopicRegistryTest
+[0;32m[ RUN      ] [mTopicRegistryTest.RegisterTopic
+2018-03-09 13:08:03.712 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic1 with ID: 1 at offset: 16448 (aligned size: 65536)
+[0;32m[       OK ] [mTopicRegistryTest.RegisterTopic (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.GetExistingTopicMetadata
+2018-03-09 13:08:03.717 [[32mINFO[0m] [register_topic:162] Registered topic: rt://test/topic2 with ID: 1 at offset: 16448 (aligned size: 32768)
+[0;32m[       OK ] [mTopicRegistryTest.GetExistingTopicMetadata (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.GetNonExistingTopicMetadata
+[0;32m[       OK ] [mTopicRegistryTest.GetNonExistingTopicMetadata (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.RegisterDuplicateTopicReturnsSame
+2018-03-09 13:08:03.725 [[32mINFO[0m] [register_topic:162] Registered topic: rt://duplicate/topic with ID: 1 at offset: 16448 (aligned size: 16384)
+2018-03-09 13:08:03.725 [[33mWARN[0m] [register_topic:88] Topic already registered: rt://duplicate/topic
+[0;32m[       OK ] [mTopicRegistryTest.RegisterDuplicateTopicReturnsSame (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.RegisterMultipleTopics
+2018-03-09 13:08:03.730 [[32mINFO[0m] [register_topic:162] Registered topic: rt://topic/a with ID: 1 at offset: 16448 (aligned size: 16384)
+2018-03-09 13:08:03.730 [[32mINFO[0m] [register_topic:162] Registered topic: rt://topic/b with ID: 2 at offset: 32832 (aligned size: 16384)
+2018-03-09 13:08:03.730 [[32mINFO[0m] [register_topic:162] Registered topic: rt://topic/c with ID: 3 at offset: 49216 (aligned size: 16384)
+2018-03-09 13:08:03.730 [[32mINFO[0m] [register_topic:162] Registered topic: rt://sensor/imu with ID: 4 at offset: 65600 (aligned size: 16384)
+2018-03-09 13:08:03.730 [[32mINFO[0m] [register_topic:162] Registered topic: rt://sensor/gps with ID: 5 at offset: 81984 (aligned size: 16384)
+2018-03-09 13:08:03.730 [[32mINFO[0m] [register_topic:162] Registered topic: rt://sensor/camera with ID: 6 at offset: 98368 (aligned size: 16384)
+[0;32m[       OK ] [mTopicRegistryTest.RegisterMultipleTopics (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.GetTopicMetadataById
+2018-03-09 13:08:03.734 [[32mINFO[0m] [register_topic:162] Registered topic: rt://byid/test with ID: 1 at offset: 16448 (aligned size: 65536)
+[0;32m[       OK ] [mTopicRegistryTest.GetTopicMetadataById (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.GetTopicMetadataByInvalidId
+[0;32m[       OK ] [mTopicRegistryTest.GetTopicMetadataByInvalidId (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.GetAllTopics
+2018-03-09 13:08:03.743 [[32mINFO[0m] [register_topic:162] Registered topic: rt://all/topic1 with ID: 1 at offset: 16448 (aligned size: 16384)
+2018-03-09 13:08:03.743 [[32mINFO[0m] [register_topic:162] Registered topic: rt://all/topic2 with ID: 2 at offset: 32832 (aligned size: 32768)
+2018-03-09 13:08:03.743 [[32mINFO[0m] [register_topic:162] Registered topic: rt://all/topic3 with ID: 3 at offset: 65600 (aligned size: 65536)
+[0;32m[       OK ] [mTopicRegistryTest.GetAllTopics (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.ValidTopicNameFormat
+[0;32m[       OK ] [mTopicRegistryTest.ValidTopicNameFormat (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.InvalidTopicNameFormat
+[0;32m[       OK ] [mTopicRegistryTest.InvalidTopicNameFormat (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.LargeBufferSize
+2018-03-09 13:08:03.756 [[32mINFO[0m] [register_topic:162] Registered topic: rt://large/topic with ID: 1 at offset: 16448 (aligned size: 524288)
+[0;32m[       OK ] [mTopicRegistryTest.LargeBufferSize (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.SmallBufferSize
+2018-03-09 13:08:03.760 [[32mINFO[0m] [register_topic:162] Registered topic: rt://small/topic with ID: 1 at offset: 16448 (aligned size: 4096)
+[0;32m[       OK ] [mTopicRegistryTest.SmallBufferSize (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.TopicMetadata
+2018-03-09 13:08:03.765 [[32mINFO[0m] [register_topic:162] Registered topic: rt://meta/test with ID: 1 at offset: 16448 (aligned size: 65536)
+[0;32m[       OK ] [mTopicRegistryTest.TopicMetadata (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.RegisterWithProtocolPrefix
+2018-03-09 13:08:03.769 [[32mINFO[0m] [register_topic:162] Registered topic: rt://navigation/pose with ID: 1 at offset: 16448 (aligned size: 32768)
+2018-03-09 13:08:03.769 [[32mINFO[0m] [register_topic:162] Registered topic: shm://camera/frame with ID: 2 at offset: 49216 (aligned size: 131072)
+[0;32m[       OK ] [mTopicRegistryTest.RegisterWithProtocolPrefix (4 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.MemoryExhaustion
+2018-03-09 13:08:03.774 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic0 with ID: 1 at offset: 16448 (aligned size: 65536)
+2018-03-09 13:08:03.774 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic1 with ID: 2 at offset: 81984 (aligned size: 65536)
+2018-03-09 13:08:03.774 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic2 with ID: 3 at offset: 147520 (aligned size: 65536)
+2018-03-09 13:08:03.774 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic3 with ID: 4 at offset: 213056 (aligned size: 65536)
+2018-03-09 13:08:03.774 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic4 with ID: 5 at offset: 278592 (aligned size: 65536)
+2018-03-09 13:08:03.774 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic5 with ID: 6 at offset: 344128 (aligned size: 65536)
+2018-03-09 13:08:03.774 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic6 with ID: 7 at offset: 409664 (aligned size: 65536)
+2018-03-09 13:08:03.774 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic7 with ID: 8 at offset: 475200 (aligned size: 65536)
+2018-03-09 13:08:03.775 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic8 with ID: 9 at offset: 540736 (aligned size: 65536)
+2018-03-09 13:08:03.775 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic9 with ID: 10 at offset: 606272 (aligned size: 65536)
+2018-03-09 13:08:03.775 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic10 with ID: 11 at offset: 671808 (aligned size: 65536)
+2018-03-09 13:08:03.775 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic11 with ID: 12 at offset: 737344 (aligned size: 65536)
+2018-03-09 13:08:03.775 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic12 with ID: 13 at offset: 802880 (aligned size: 65536)
+2018-03-09 13:08:03.775 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic13 with ID: 14 at offset: 868416 (aligned size: 65536)
+2018-03-09 13:08:03.775 [[32mINFO[0m] [register_topic:162] Registered topic: rt://exhaust/topic14 with ID: 15 at offset: 933952 (aligned size: 65536)
+2018-03-09 13:08:03.775 [[31mERROR[0m] [register_topic:146] Not enough shared memory for new topic: rt://exhaust/topic15 (required: 65536, available: 49088)
+[0;32m[       OK ] [mTopicRegistryTest.MemoryExhaustion (6 ms)
+[0;32m[ RUN      ] [mTopicRegistryTest.TotalBufferSizeTracking
+2018-03-09 13:08:03.779 [[32mINFO[0m] [register_topic:162] Registered topic: rt://size/topic0 with ID: 1 at offset: 16448 (aligned size: 16384)
+2018-03-09 13:08:03.780 [[32mINFO[0m] [register_topic:162] Registered topic: rt://size/topic1 with ID: 2 at offset: 32832 (aligned size: 32768)
+2018-03-09 13:08:03.780 [[32mINFO[0m] [register_topic:162] Registered topic: rt://size/topic2 with ID: 3 at offset: 65600 (aligned size: 65536)
+2018-03-09 13:08:03.780 [[32mINFO[0m] [register_topic:162] Registered topic: rt://size/topic3 with ID: 4 at offset: 131136 (aligned size: 131072)
+[0;32m[       OK ] [mTopicRegistryTest.TotalBufferSizeTracking (4 ms)
+[0;32m[----------] [m16 tests from TopicRegistryTest (71 ms total)
+
+[0;32m[----------] [mGlobal test environment tear-down
+[0;32m[==========] [m259 tests from 29 test suites ran. (6571 ms total)
+[0;32m[  PASSED  ] [m259 tests.
+libgcov profiling error:h:\Resources\RTLinux\Demos\MB_DDF\build\aarch64\Debug\tests\CMakeFiles/MB_DDF_Tests.dir/__/src/MB_DDF/DDS/DDSCore.cpp.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:h:\Resources\RTLinux\Demos\MB_DDF\build\aarch64\Debug\tests\CMakeFiles/MB_DDF_Tests.dir/unit/test_dds_core.cpp.gcda:overwriting an existing profile data with a different timestamp

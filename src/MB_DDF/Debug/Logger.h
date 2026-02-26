@@ -341,7 +341,10 @@ private:
             auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
                         now.time_since_epoch()) % 1000;
             
-            ss << std::put_time(std::localtime(&now_time), "%Y-%m-%d %H:%M:%S")
+            std::tm tm_buf;
+            localtime_r(&now_time, &tm_buf);
+            ss << std::put_time(&tm_buf, "%Y-%m-%d %H:%M:%S")
+            // ss << std::put_time(std::localtime(&now_time), "%Y-%m-%d %H:%M:%S")
                << '.' << std::setfill('0') << std::setw(3) << ms.count() << " ";
         }
         

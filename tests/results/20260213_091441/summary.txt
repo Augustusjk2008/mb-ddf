@@ -1,0 +1,17 @@
+﻿MB_DDF Test Summary
+===================
+Date: 2026-02-13 09:15:05
+Remote Host: 192.168.1.29
+Test Filter: *
+
+Results:
+- Exit Code: 0
+- Status: PASSED
+
+Output Files:
+- Test Output: H:\Resources\RTLinux\Demos\MB_DDF\tests\results\20260213_091441\test_output.txt
+- Coverage Data: H:\Resources\RTLinux\Demos\MB_DDF\tests\results\20260213_091441\gcda
+- HTML Report: H:\Resources\RTLinux\Demos\MB_DDF\tests\results\20260213_091441\coverage\html\
+
+To view coverage report:
+  Open: H:\Resources\RTLinux\Demos\MB_DDF\tests\results\20260213_091441\coverage\html\index.html

@@ -294,7 +294,7 @@ private:
      * @param data_size 消息数据大小
      * @return 总大小
      */
-    static size_t calculate_message_total_size(size_t data_size);
+    size_t calculate_message_total_size(size_t data_size);
     
     /**
      * @brief 内存对齐大小
