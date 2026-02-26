@@ -4,6 +4,8 @@
  */
 
 #include <gtest/gtest.h>
+#include <cstring>
+#include <thread>
 #include "MB_DDF/DDS/Message.h"
 
 using namespace MB_DDF::DDS;
@@ -154,7 +156,237 @@ TEST(MessageBoundary, LargeDataSize) {
     EXPECT_EQ(msg.header.data_size, 0xFFFFFFFF);
 }
 
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+// ==============================
+// Message::update() 测试
+// ==============================
+TEST(MessageUpdate, UpdateTimestamp) {
+    char buffer[] = "Test data for update";
+    size_t data_size = strlen(buffer) + 1;
+
+    size_t total_size = sizeof(Message) + data_size;
+    auto* storage = new uint8_t[total_size];
+
+    auto* msg = new (storage) Message();
+    msg->header.topic_id = 1;
+    msg->header.sequence = 100;
+    msg->header.data_size = data_size;
+
+    // 复制数据
+    memcpy(msg->get_data(), buffer, data_size);
+
+    // 记录旧时间戳
+    uint64_t old_timestamp = msg->header.timestamp;
+    uint32_t old_checksum = msg->header.checksum;
+
+    // 等待一小段时间确保时间戳变化
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
+    // 调用 update
+    msg->update(true);
+
+    // 验证时间戳已更新
+    EXPECT_GT(msg->header.timestamp, old_timestamp);
+
+    // 验证校验和已重新计算（不为0）
+    EXPECT_NE(msg->header.checksum, 0);
+    EXPECT_NE(msg->header.checksum, old_checksum);
+
+    // 验证消息仍然有效
+    EXPECT_TRUE(msg->is_valid(true));
+
+    delete[] storage;
+}
+
+TEST(MessageUpdate, UpdateWithoutChecksum) {
+    char buffer[] = "No checksum update";
+    size_t data_size = strlen(buffer) + 1;
+
+    size_t total_size = sizeof(Message) + data_size;
+    auto* storage = new uint8_t[total_size];
+
+    auto* msg = new (storage) Message();
+    msg->header.data_size = data_size;
+    memcpy(msg->get_data(), buffer, data_size);
+
+    // 调用 update 但禁用校验和
+    msg->update(false);
+
+    // 校验和应该为0
+    EXPECT_EQ(msg->header.checksum, 0);
+
+    // 禁用校验和验证时消息有效
+    EXPECT_TRUE(msg->is_valid(false));
+
+    // 启用校验和验证时失败（因为校验和为0但数据非空）
+    EXPECT_FALSE(msg->is_valid(true));
+
+    delete[] storage;
+}
+
+TEST(MessageUpdate, UpdateEmptyData) {
+    auto* storage = new uint8_t[sizeof(Message)];
+    auto* msg = new (storage) Message();
+    msg->header.data_size = 0;
+
+    uint64_t old_timestamp = msg->header.timestamp;
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
+    msg->update(true);
+
+    // 时间戳应该更新
+    EXPECT_GT(msg->header.timestamp, old_timestamp);
+
+    // 空数据的校验和应该为0
+    EXPECT_EQ(msg->header.checksum, 0);
+
+    delete[] storage;
+}
+
+// ==============================
+// CRC32Mode::NORMAL 正向算法测试
+// ==============================
+TEST(MessageCRC32, NormalModeBasic) {
+    const char* data = "Hello, World!";
+    size_t data_size = strlen(data);
+
+    // 使用正向算法计算
+    uint32_t crc_normal = MessageHeader::calculate_crc32_normal(data, data_size);
+
+    // 验证结果不为0且不同于反向算法
+    EXPECT_NE(crc_normal, 0);
+
+    uint32_t crc_reflected = MessageHeader::calculate_crc32_reflected(data, data_size);
+    EXPECT_NE(crc_normal, crc_reflected); // 两种算法结果应该不同
+}
+
+TEST(MessageCRC32, NormalModeConsistency) {
+    const uint8_t data[] = {0x01, 0x02, 0x03, 0x04, 0x05};
+
+    // 多次计算应该得到相同结果
+    uint32_t crc1 = MessageHeader::calculate_crc32_normal(data, sizeof(data));
+    uint32_t crc2 = MessageHeader::calculate_crc32_normal(data, sizeof(data));
+
+    EXPECT_EQ(crc1, crc2);
+}
+
+TEST(MessageCRC32, NormalModeEmptyData) {
+    // 空数据应该返回0
+    uint32_t crc = MessageHeader::calculate_crc32_normal(nullptr, 0);
+    EXPECT_EQ(crc, 0);
+
+    crc = MessageHeader::calculate_crc32_normal(reinterpret_cast<const uint8_t*>(""), 0);
+    EXPECT_EQ(crc, 0);
+}
+
+TEST(MessageCRC32, CalculateChecksumWithMode) {
+    const char* data = "Test data for checksum mode";
+    size_t data_size = strlen(data);
+
+    // 使用通用接口测试两种模式
+    uint32_t crc_reflected = MessageHeader::calculate_checksum(data, data_size, CRC32Mode::REFLECTED);
+    uint32_t crc_normal = MessageHeader::calculate_checksum(data, data_size, CRC32Mode::NORMAL);
+
+    // 验证两种模式结果不同
+    EXPECT_NE(crc_reflected, crc_normal);
+
+    // 验证与直接调用一致
+    EXPECT_EQ(crc_reflected, MessageHeader::calculate_crc32_reflected(data, data_size));
+    EXPECT_EQ(crc_normal, MessageHeader::calculate_crc32_normal(data, data_size));
+}
+
+// ==============================
+// 校验和验证失败场景测试
+// ==============================
+TEST(MessageChecksum, VerificationFailure) {
+    char buffer[] = "Original data";
+    size_t data_size = strlen(buffer) + 1;
+
+    size_t total_size = sizeof(Message) + data_size;
+    auto* storage = new uint8_t[total_size];
+
+    auto* msg = new (storage) Message();
+    msg->header.data_size = data_size;
+    memcpy(msg->get_data(), buffer, data_size);
+
+    // 计算并设置正确的校验和
+    msg->header.set_checksum(msg->get_data(), data_size);
+    EXPECT_TRUE(msg->is_valid(true));
+
+    // 修改数据（模拟数据损坏）
+    char* data_ptr = static_cast<char*>(msg->get_data());
+    data_ptr[0] = 'X'; // 修改第一个字符
+
+    // 验证校验和失败
+    EXPECT_FALSE(msg->is_valid(true));
+
+    delete[] storage;
+}
+
+TEST(MessageChecksum, VerificationFailureMultipleBytes) {
+    uint8_t data[] = {0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99};
+    size_t data_size = sizeof(data);
+
+    size_t total_size = sizeof(Message) + data_size;
+    auto* storage = new uint8_t[total_size];
+
+    auto* msg = new (storage) Message();
+    msg->header.data_size = data_size;
+    memcpy(msg->get_data(), data, data_size);
+
+    // 设置校验和
+    msg->header.set_checksum(msg->get_data(), data_size);
+    EXPECT_TRUE(msg->is_valid(true));
+
+    // 修改多个字节
+    uint8_t* data_ptr = static_cast<uint8_t*>(msg->get_data());
+    data_ptr[3] = 0xFF;
+    data_ptr[7] = 0xAA;
+
+    // 验证失败
+    EXPECT_FALSE(msg->is_valid(true));
+
+    delete[] storage;
+}
+
+TEST(MessageChecksum, WrongChecksumValue) {
+    char buffer[] = "Test with wrong checksum";
+    size_t data_size = strlen(buffer) + 1;
+
+    size_t total_size = sizeof(Message) + data_size;
+    auto* storage = new uint8_t[total_size];
+
+    auto* msg = new (storage) Message();
+    msg->header.data_size = data_size;
+    memcpy(msg->get_data(), buffer, data_size);
+
+    // 设置一个错误的校验和
+    msg->header.checksum = 0xDEADBEEF;
+
+    // 验证应该失败
+    EXPECT_FALSE(msg->is_valid(true));
+
+    // 禁用校验和验证时应该通过
+    EXPECT_TRUE(msg->is_valid(false));
+
+    delete[] storage;
+}
+
+TEST(MessageChecksum, ZeroChecksumWithData) {
+    char buffer[] = "Data with zero checksum";
+    size_t data_size = strlen(buffer) + 1;
+
+    size_t total_size = sizeof(Message) + data_size;
+    auto* storage = new uint8_t[total_size];
+
+    auto* msg = new (storage) Message();
+    msg->header.data_size = data_size;
+    memcpy(msg->get_data(), buffer, data_size);
+
+    // 校验和为0（未设置）
+    msg->header.checksum = 0;
+
+    // 启用校验和验证时应该失败（数据非空但校验和为0）
+    EXPECT_FALSE(msg->is_valid(true));
+
+    delete[] storage;
 }

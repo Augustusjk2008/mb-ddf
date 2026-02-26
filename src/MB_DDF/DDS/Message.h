@@ -13,6 +13,7 @@
 #include <bits/atomic_wait.h>
 #include <cstdint>
 #include <chrono>
+#include <mutex>
 
 namespace MB_DDF {
 namespace DDS {
@@ -27,9 +28,9 @@ enum class CRC32Mode {
 };
 
 // 初始化CRC32表
-static uint32_t crc32_table_reflected[256];  // 反向表
-static uint32_t crc32_table_normal[256];     // 正向表
-static bool tables_initialized = false;
+inline uint32_t crc32_table_reflected[256];  // 反向表
+inline uint32_t crc32_table_normal[256];     // 正向表
+inline std::once_flag crc32_tables_once;
 
 /**
  * @struct MessageHeader
@@ -75,28 +76,26 @@ struct alignas(8) MessageHeader {
      * @brief 初始化CRC32表（同时初始化正向和反向）
      */
     static void initialize_crc32_tables() {
-        if (tables_initialized) return;
-        
-        // 1. 初始化反向表（原算法）
-        for (uint32_t i = 0; i < 256; ++i) {
-            uint32_t crc = i;
-            for (int j = 0; j < 8; ++j) {
-                crc = (crc & 1) ? ((crc >> 1) ^ 0xEDB88320) : (crc >> 1);
+        std::call_once(crc32_tables_once, []() {
+            // 1. 初始化反向表（原算法）
+            for (uint32_t i = 0; i < 256; ++i) {
+                uint32_t crc = i;
+                for (int j = 0; j < 8; ++j) {
+                    crc = (crc & 1) ? ((crc >> 1) ^ 0xEDB88320) : (crc >> 1);
+                }
+                crc32_table_reflected[i] = crc;
             }
-            crc32_table_reflected[i] = crc;
-        }
-        
-        // 2. 初始化正向表
-        const uint32_t polynomial = 0x04C11DB7;  // 正向多项式
-        for (uint32_t i = 0; i < 256; ++i) {
-            uint32_t crc = i << 24;
-            for (int j = 0; j < 8; ++j) {
-                crc = (crc & 0x80000000) ? ((crc << 1) ^ polynomial) : (crc << 1);
+
+            // 2. 初始化正向表
+            const uint32_t polynomial = 0x04C11DB7;  // 正向多项式
+            for (uint32_t i = 0; i < 256; ++i) {
+                uint32_t crc = i << 24;
+                for (int j = 0; j < 8; ++j) {
+                    crc = (crc & 0x80000000) ? ((crc << 1) ^ polynomial) : (crc << 1);
+                }
+                crc32_table_normal[i] = crc;
             }
-            crc32_table_normal[i] = crc;
-        }
-        
-        tables_initialized = true;
+        });
     }
     
     /**
@@ -284,5 +283,4 @@ struct alignas(8) Message {
 
 } // namespace DDS
 } // namespace MB_DDF
-
 

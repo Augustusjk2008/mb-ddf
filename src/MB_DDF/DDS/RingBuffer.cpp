@@ -10,12 +10,24 @@
 #include "MB_DDF/DDS/SemaphoreGuard.h"
 #include <cstring>
 #include <semaphore.h>
+#include <stdexcept>
 #include <sys/time.h>
 
 namespace MB_DDF {
 namespace DDS {
 
 RingBuffer::RingBuffer(void* buffer, size_t size, sem_t* sem, bool enable_checksum) : sem_(sem), enable_checksum_(enable_checksum) {
+    const size_t metadata_size = sizeof(RingHeader) + sizeof(SubscriberRegistry);
+    if (buffer == nullptr) {
+        LOG_ERROR << "RingBuffer construction failed, buffer is null";
+        throw std::invalid_argument("RingBuffer buffer is null");
+    }
+    if (size <= metadata_size) {
+        LOG_ERROR << "RingBuffer construction failed, buffer too small: size=" << size
+                  << ", required>" << metadata_size;
+        throw std::invalid_argument("RingBuffer buffer too small");
+    }
+
     // 计算各部分在共享内存中的布局
     char* base = static_cast<char*>(buffer);
     LOG_DEBUG << "RingBuffer buffer address: " << (void*)base;
@@ -27,7 +39,6 @@ RingBuffer::RingBuffer(void* buffer, size_t size, sem_t* sem, bool enable_checks
     registry_ = reinterpret_cast<SubscriberRegistry*>(base + sizeof(RingHeader));
     
     // 数据存储区
-    size_t metadata_size = sizeof(RingHeader) + sizeof(SubscriberRegistry);
     data_ = base + metadata_size;
     capacity_ = size - metadata_size;
     
@@ -429,9 +440,28 @@ int RingBuffer::futex_wake(volatile uint32_t* addr, uint32_t count) {
 }
 
 size_t RingBuffer::calculate_message_total_size(size_t data_size) {
+    // 检查溢出：data_size 是否超过 capacity_ 减去消息头大小
+    if (data_size > capacity_ - sizeof(MessageHeader)) {
+        return 0;  // 溢出：请求大小超过缓冲区容量
+    }
+
     size_t total = Message::total_size(data_size);
+
+    // 检查溢出：加法是否溢出
+    size_t align_mask = ALIGNMENT - 1;
+    if (total > SIZE_MAX - align_mask) {
+        return 0;  // 溢出：对齐操作将溢出
+    }
+
     // 对齐到ALIGNMENT边界
-    return (total + ALIGNMENT - 1) & ~(ALIGNMENT - 1);
+    size_t aligned = (total + align_mask) & ~align_mask;
+
+    // 再次检查对齐后的值（保险检查）
+    if (aligned < total) {
+        return 0;  // 溢出：对齐后值回绕
+    }
+
+    return aligned;
 }
 
 bool RingBuffer::is_checksum_enabled() const {
