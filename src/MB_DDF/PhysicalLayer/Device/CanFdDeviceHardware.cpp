@@ -505,15 +505,31 @@ int CanFDDevice::__axiCanfdRecvFifo(CanFrame *pCanFrame) {
     uint32_t Len         = 0;
     uint32_t data        = 0;
     uint32_t uiDwIndex   = 0;
+    bool useFifo1 = false;
 
-    rd32(XCANFD_FSR_OFFSET, uiResult);// FIFO 0 状态，只用了FIFO 0
-    if (!(uiResult & XCANFD_FSR_FL_MASK)) {    // FIFO 0 没有消息
-        LOGW("canfd", "recv", uiResult, "FSR=0x%08X", uiResult);
-        return 0;
+    rd32(XCANFD_FSR_OFFSET, uiResult);
+    uint32_t fifo0Level = (uiResult & XCANFD_FSR_FL_MASK) >> XCANFD_FSR_FL_0_SHIFT;
+    uint32_t fifo1Level = (uiResult & XCANFD_FSR_FL_1_MASK) >> XCANFD_FSR_FL_1_SHIFT;
+
+    LOGI("canfd", "recv", uiResult, "FSR=0x%08X FIFO0=%d FIFO1=%d", uiResult, fifo0Level, fifo1Level);
+
+    if (fifo0Level > 0) {
+        uiReadIndex = uiResult & XCANFD_FSR_RI_MASK;
+        useFifo1 = false;
+    } else if (fifo1Level > 0) {
+        uiReadIndex = (uiResult & XCANFD_FSR_RI_1_MASK) >> XCANFD_FSR_RI_1_SHIFT;
+        useFifo1 = true;
+    } else {
+        return 0;  // 两个FIFO都为空
     }
-    
-    uiReadIndex = uiResult & XCANFD_FSR_RI_MASK;    // FIFO 0 消息索引
-    rd32(XCANFD_RXID_OFFSET(uiReadIndex), uiValue);
+
+    // 根据FIFO选择寄存器地址
+    uint32_t idOffset = useFifo1 ? XCANFD_FIFO_1_RXID_OFFSET(uiReadIndex) : XCANFD_RXID_OFFSET(uiReadIndex);
+    uint32_t dlcOffset = useFifo1 ? XCANFD_FIFO_1_RXDLC_OFFSET(uiReadIndex) : (XCANFD_RXFIFO_0_BASE_DLC_OFFSET + (uiReadIndex * XCANFD_MAX_FRAME_SIZE));
+    uint32_t dwOffset = useFifo1 ? XCANFD_FIFO_1_RXDW_OFFSET(uiReadIndex) : (XCANFD_RXFIFO_0_BASE_DW0_OFFSET + (uiReadIndex * XCANFD_MAX_FRAME_SIZE));
+    uint32_t iriMask = useFifo1 ? XCANFD_FSR_IRI_1_MASK : XCANFD_FSR_IRI_MASK;
+
+    rd32(idOffset, uiValue);
     pCanFrame->ide = (uiValue & XCANFD_IDR_IDE_MASK) >> XCANFD_IDR_IDE_SHIFT;
     pCanFrame->rtr = (uiValue & XCANFD_IDR_RTR_MASK);
 
@@ -524,7 +540,7 @@ int CanFDDevice::__axiCanfdRecvFifo(CanFrame *pCanFrame) {
         pCanFrame->id = (uiValue >> 21);
     }
 
-    rd32(XCANFD_RXFIFO_0_BASE_DLC_OFFSET+(uiReadIndex * XCANFD_MAX_FRAME_SIZE), uiDlc);
+    rd32(dlcOffset, uiDlc);
 
     pCanFrame->dlc = (uiDlc & XCANFD_DLCR_DLC_MASK) >> XCANFD_DLCR_DLC_SHIFT;
     pCanFrame->len = dlc_to_len(pCanFrame->dlc);
@@ -542,10 +558,10 @@ int CanFDDevice::__axiCanfdRecvFifo(CanFrame *pCanFrame) {
 
     // 确保data vector有足够的空间
     pCanFrame->data.resize(pCanFrame->len);
-    
+
     if (uiDlc & XCANFD_DLCR_EDL_MASK){
-        for (Len = 0; Len < pCanFrame->len; Len += 4) { 
-            rd32(XCANFD_RXFIFO_0_BASE_DW0_OFFSET+(uiReadIndex * XCANFD_MAX_FRAME_SIZE) + (uiDwIndex * XCANFD_DW_BYTES), data);
+        for (Len = 0; Len < pCanFrame->len; Len += 4) {
+            rd32(dwOffset + (uiDwIndex * XCANFD_DW_BYTES), data);
             uiDwIndex++;
             // 安全地拷贝数据，避免数组越界
             if (Len < pCanFrame->len) pCanFrame->data[Len]     = (data >> 24) & 0xFF;
@@ -557,9 +573,11 @@ int CanFDDevice::__axiCanfdRecvFifo(CanFrame *pCanFrame) {
 
     // Set the IRI bit causes core to increment RI in FSR Register
     rd32(XCANFD_FSR_OFFSET, uiResult);
-    uiResult |= XCANFD_FSR_IRI_MASK;
+    uiResult |= iriMask;
     wr32(XCANFD_FSR_OFFSET, uiResult);
-    
+
+    LOGI("canfd", "recv", 1, "Frame received from FIFO%d id=0x%X len=%d", useFifo1 ? 1 : 0, pCanFrame->id, pCanFrame->len);
+
     return 1; // 返回接收到的帧数
 }
 
