@@ -678,7 +678,7 @@ int CanFDDevice::__axiCanfdIoctl(int iCmd, void* lArg) {
                                     pAxiCanFilter->uiMask,
                                     pAxiCanFilter->uiId);
             } else {
-                __axiCanfdAcceptFilterDisable(0);
+                __axiCanfdAcceptFilterDisable(0xFFFFFFFF);                 // 禁用所有滤波器，接收所有帧
             }
             break;
         }
