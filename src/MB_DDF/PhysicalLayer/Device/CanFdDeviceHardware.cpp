@@ -570,6 +570,8 @@ int CanFDDevice::__axiCanfdRecvFifo(CanFrame *pCanFrame) {
     uint32_t iriMask = useFifo1 ? XCANFD_FSR_IRI_1_MASK : XCANFD_FSR_IRI_MASK;
 
     rd32(idOffset, uiValue);
+    LOGI("canfd", "recv", 0, "Raw ID reg=0x%08X from offset=0x%X", uiValue, idOffset);
+
     pCanFrame->ide = (uiValue & XCANFD_IDR_IDE_MASK) >> XCANFD_IDR_IDE_SHIFT;
     pCanFrame->rtr = (uiValue & XCANFD_IDR_RTR_MASK);
 
@@ -577,10 +579,11 @@ int CanFDDevice::__axiCanfdRecvFifo(CanFrame *pCanFrame) {
         pCanFrame->id  = (uiValue & (0x3FFFF << 1)) >> 1;
         pCanFrame->id |= ((uiValue & (0x7ff<<21)) >> 3);
     } else {
-        pCanFrame->id = (uiValue >> 21);
+        pCanFrame->id = (uiValue >> 21) & 0x7FF;
     }
 
     rd32(dlcOffset, uiDlc);
+    LOGI("canfd", "recv", 0, "Raw DLC reg=0x%08X from offset=0x%X", uiDlc, dlcOffset);
 
     pCanFrame->dlc = (uiDlc & XCANFD_DLCR_DLC_MASK) >> XCANFD_DLCR_DLC_SHIFT;
     pCanFrame->len = dlc_to_len(pCanFrame->dlc);
