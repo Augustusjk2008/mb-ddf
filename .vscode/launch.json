@@ -13,7 +13,7 @@
             "externalConsole": false,
             "MIMode": "gdb",
             "miDebuggerPath": "D:\\\\Program Files (x86)\\\\Arm GNU Toolchain aarch64-none-linux-gnu\\\\11.3 rel1\\\\bin\\\\aarch64-none-linux-gnu-gdb.exe", // **重要**：指向你Windows上交叉编译工具链内的GDB
-            "miDebuggerServerAddress": "192.168.137.100:1234", // **重要**：你的开发板IP和gdbserver监听端口
+            "miDebuggerServerAddress": "192.168.1.29:1234", // **重要**：你的开发板IP和gdbserver监听端口
             "setupCommands": [
                 { "description": "Enable pretty-printing", "text": "-enable-pretty-printing", "ignoreFailures": true },
                 { "description": "GDB: turn off thread event printing", "text": "set print thread-events off", "ignoreFailures": true },

@@ -88,7 +88,7 @@ inline void RunDemo07_LoggerUsage() {
 
     // 创建 Fk_to_datalink 结构体实例和 Schema
     ProtocolModel::Fk_to_datalink fk_data;
-    static auto fk_schema = ProtocolModel::Fk_to_datalinkProtocol::buildSchema();
+    auto fk_schema = ProtocolModel::Fk_to_datalinkProtocol::buildSchema();
 
     // MB_DDF::MonitorUI::run_monitor_table(update);
     auto update = [&]() {

@@ -235,10 +235,12 @@ int CanFDDevice::__axiCanfdEnterMode(uint8_t ucMode) {
     }
     // 如果不是上述两种模式，则在设置模式之前必须切换到配置模式，再进行模式切换
     wr32(XCANFD_SRR_OFFSET, 0);
-    if (__axiCanfdGetMode() != (uint8_t)XCANFD_MODE_CONFIG) {   // 判断是否进入配置模式
-        LOGE("canfd", "enter Mode error", XCANFD_MODE_CONFIG, "not in config mode");
-        return -1;
-    }
+    while (__axiCanfdGetMode() != (uint8_t)XCANFD_MODE_CONFIG);
+    // uint8_t mode = __axiCanfdGetMode() & 0xF;
+    // if (mode != (uint8_t)XCANFD_MODE_CONFIG) {   // 判断是否进入配置模式
+    //     LOGE("canfd", "enter Mode error", mode, "not in config mode");
+    //     return -1;
+    // }
 
     switch (ucMode) {
     case XCANFD_MODE_CONFIG:                                            // 已经处于配置模式
@@ -296,7 +298,13 @@ int CanFDDevice::__axiCanfdHwInit(void) {
     wr32(XCANFD_SRR_OFFSET, XCANFD_SRR_SRST_MASK);
 
     __axiCanfdEnterMode(XCANFD_MODE_CONFIG);                /* 进入配置模式                 */
-    while (__axiCanfdGetMode() != XCANFD_MODE_CONFIG);
+    while (__axiCanfdGetMode() != (uint8_t)XCANFD_MODE_CONFIG);
+    // while (1) {
+    //     uint8_t mode = __axiCanfdGetMode() & 0xF;
+    //     if (mode == XCANFD_MODE_CONFIG) {
+    //         break;
+    //     }
+    // }
     // 设置波特率默认配置位仲裁域1M 数据域 4M
     wr32(XCANFD_BRPR_OFFSET, 1);
     __axiCanfdSetBitTiming(3, 3, 14);
@@ -320,8 +328,13 @@ int CanFDDevice::__axiCanfdHwInit(void) {
     __axiCanfdSetBitRateSwitchDisableNominal();               // 配置波特率切换功能
 
     __axiCanfdEnterMode(XCANFD_MODE_NORMAL);                // 进入工作模式
-    while (__axiCanfdGetMode() != XCANFD_MODE_NORMAL);
-
+    while (__axiCanfdGetMode() != (uint8_t)XCANFD_MODE_NORMAL);
+    // while (1) {
+    //     uint8_t mode = __axiCanfdGetMode() & 0xF;
+    //     if (mode == XCANFD_MODE_NORMAL) {
+    //         break;
+    //     }
+    // }
     return 0;
 }
 
@@ -495,6 +508,7 @@ int CanFDDevice::__axiCanfdRecvFifo(CanFrame *pCanFrame) {
 
     rd32(XCANFD_FSR_OFFSET, uiResult);// FIFO 0 状态，只用了FIFO 0
     if (!(uiResult & XCANFD_FSR_FL_MASK)) {    // FIFO 0 没有消息
+        LOGW("canfd", "recv", uiResult, "FSR=0x%08X", uiResult);
         return 0;
     }
     
@@ -671,6 +685,12 @@ int CanFDDevice::__axiCanfdIoctl(int iCmd, void* lArg) {
 
         case CAN_DEV_INTE_DISABLED: {                                   // 禁用中断
             __axiCanfdInterruptEnable(0);
+            break;
+        }
+
+        case CAN_DEV_SET_LOOPBACK: {
+            __axiCanfdEnterMode(XCANFD_MODE_LOOPBACK);
+            while (__axiCanfdGetMode() != XCANFD_MODE_LOOPBACK);
             break;
         }
 

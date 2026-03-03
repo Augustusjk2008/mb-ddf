@@ -84,7 +84,7 @@ int32_t CanFDDevice::receive(CanFrame& frame) {
 int32_t CanFDDevice::receive(CanFrame& frame, uint32_t timeout_us) {
     uint32_t bm = 0;
     int ev = transport().waitEvent(&bm, timeout_us / 1000);
-    if (ev <= 0) return ev == 0 ? 0 : -1;
+    // if (ev <= 0) return ev == 0 ? 0 : -1;
     return receive(frame);
 }
 

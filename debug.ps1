@@ -594,11 +594,11 @@ if ($Run) {
          throw "ssh not found. Please install OpenSSH Client (Windows optional feature) or ensure ssh is in PATH."
      }
      
-     $confirmation = Read-Host "Deploy complete. Do you want to run the program? [Y/n]"
-     if ($confirmation -and $confirmation.Trim().ToLower() -eq "n") {
-         Write-Host "Run cancelled by user."
-         exit 0
-     }
+    #  $confirmation = Read-Host "Deploy complete. Do you want to run the program? [Y/n]"
+    #  if ($confirmation -and $confirmation.Trim().ToLower() -eq "n") {
+    #      Write-Host "Run cancelled by user."
+    #      exit 0
+    #  }
 
      Write-Host "Running program directly via SSH..."
     $runCmd = "cd $remoteDirNormalized && chmod +x * && ./$projectNameOverride"

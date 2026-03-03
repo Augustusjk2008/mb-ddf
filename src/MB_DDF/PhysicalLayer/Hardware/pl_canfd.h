@@ -654,6 +654,9 @@ namespace Device {
 #define CAN_DEV_GET_STATS               215              /* 获取 CAN FD 统计信息         */
 #define CAN_DEV_INTE_DISABLED           216              /* 禁用中断这个实现并不合理     */
 #define CAN_DEV_SET_SIG                 217              /* 设置 CAN FD 给应用层传输信号 */
+#define CAN_DEV_SET_LOOPBACK            218              /* 设置 CAN FD 回环模式         */
+
+
 
 typedef struct  axi_canfd_filter {
     unsigned int uiFilterIndex;
