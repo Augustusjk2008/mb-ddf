@@ -502,12 +502,24 @@ int CanFDDevice::__axiCanfdSend(CanFrame *pCanFrame) {
     rd32(XCANFD_SR_OFFSET, sr);
     rd32(XCANFD_ESR_OFFSET, esr);
 
-    uint32_t afr, fsr;
+    uint32_t afr, fsr, isr, wir;
     rd32(XCANFD_AFR_OFFSET, afr);
     rd32(XCANFD_FSR_OFFSET, fsr);
+    rd32(XCANFD_ISR_OFFSET, isr);
+    rd32(XCANFD_WIR_OFFSET, wir);
 
-    LOGI("canfd", "send", timeout, "TRR=0x%08X MSR=0x%08X SR=0x%08X ESR=0x%08X AFR=0x%08X FSR=0x%08X",
-         trrStatus, msr, sr, esr, afr, fsr);
+    LOGI("canfd", "send", timeout, "TRR=0x%08X MSR=0x%08X SR=0x%08X ESR=0x%08X AFR=0x%08X FSR=0x%08X ISR=0x%08X WIR=0x%08X",
+         trrStatus, msr, sr, esr, afr, fsr, isr, wir);
+
+    // 尝试多次读取FSR，看是否延迟后会有数据
+    for (int i = 0; i < 100; i++) {
+        usleep(1000);  // 1ms
+        rd32(XCANFD_FSR_OFFSET, fsr);
+        if (fsr != 0) {
+            LOGI("canfd", "send", i, "FSR changed to 0x%08X after %d ms", fsr, i);
+            break;
+        }
+    }
 
     return timeout > 0 ? 0 : -1;
 }
