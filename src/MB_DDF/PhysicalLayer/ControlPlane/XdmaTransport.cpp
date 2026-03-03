@@ -59,7 +59,15 @@ bool XdmaTransport::open(const TransportConfig& cfg) {
         std::string user = make_user_path(cfg_.device_path);
         user_fd_ = ::open(user.c_str(), O_RDWR | O_CLOEXEC);
         if (user_fd_ >= 0) {
-            mapped_len_ = static_cast<size_t>(page_size());
+            const size_t page = static_cast<size_t>(page_size());
+            size_t requested_len = cfg_.map_length;
+            if (requested_len == 0) {
+                requested_len = page;
+            }
+            if (requested_len < page) {
+                requested_len = page;
+            }
+            mapped_len_ = ((requested_len + page - 1) / page) * page;
             user_base_ = ::mmap(nullptr, mapped_len_, PROT_READ | PROT_WRITE, MAP_SHARED, user_fd_, cfg_.device_offset);
             LOGI("xdma", "mmap_user", 0, "path=%s, offset=%ld, len=%ld", user.c_str(), cfg_.device_offset, mapped_len_);
             if (user_base_ == MAP_FAILED) {

@@ -83,8 +83,10 @@ int32_t CanFDDevice::receive(CanFrame& frame) {
 
 int32_t CanFDDevice::receive(CanFrame& frame, uint32_t timeout_us) {
     uint32_t bm = 0;
-    int ev = transport().waitEvent(&bm, timeout_us / 1000);
-    // if (ev <= 0) return ev == 0 ? 0 : -1;
+    uint32_t timeout_ms = timeout_us / 1000;
+    if (timeout_ms == 0) timeout_ms = 1;
+    int ev = transport().waitEvent(&bm, timeout_ms);
+    if (ev <= 0) return ev == 0 ? 0 : -1;
     return receive(frame);
 }
 
@@ -137,7 +139,9 @@ int32_t CanFDDevice::receive(uint8_t* buf, uint32_t buf_size) {
 
 int32_t CanFDDevice::receive(uint8_t* buf, uint32_t buf_size, uint32_t timeout_us) {
     uint32_t bm = 0;
-    int ev = transport().waitEvent(&bm, timeout_us / 1000);
+    uint32_t timeout_ms = timeout_us / 1000;
+    if (timeout_ms == 0) timeout_ms = 1;
+    int ev = transport().waitEvent(&bm, timeout_ms);
     if (ev <= 0) return ev == 0 ? 0 : -1;
     return receive(buf, buf_size);
 }

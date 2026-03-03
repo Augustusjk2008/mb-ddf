@@ -9,6 +9,7 @@
  */
 #pragma once
 
+#include <cstddef>
 #include <cstdint>
 #include <string>
 
@@ -37,6 +38,7 @@ struct TransportConfig {
     int dma_c2h_channel{-1};         // 设备到主机通道编号；<0 表示未启用
     int event_number{-1};            // 事件设备编号；<0 表示未启用
     __off_t device_offset{0};        // 设备内存偏移（用于寄存器映射）
+    size_t map_length{0};            // user BAR mmap长度(字节), 0=默认单页
 };
 
 // 设备能力：用于运行时能力发现与上层决策，暂不实现

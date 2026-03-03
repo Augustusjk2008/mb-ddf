@@ -23,9 +23,9 @@ inline void vlogf(const char* level, const char* backend, const char* op, int co
 
 inline void logf(const char* level, const char* backend, const char* op, int code, const char* fmt, ...) {
     // 临时启用INFO日志用于调试
-    // if (strcmp(level, "I") == 0) {
-    //     return;
-    // }
+    if (strcmp(level, "I") == 0) {
+        return;
+    }
     va_list ap;
     va_start(ap, fmt);
     vlogf(level, backend, op, code, fmt, ap);

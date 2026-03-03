@@ -619,6 +619,19 @@ int CanFDDevice::__axiCanfdRecvFifo(CanFrame *pCanFrame) {
     uiResult |= iriMask;
     wr32(XCANFD_FSR_OFFSET, uiResult);
 
+    // Clear frame-related interrupt status bits so the next frame can re-trigger event edge.
+    uint32_t irqStatus = 0;
+    rd32(XCANFD_ISR_OFFSET, irqStatus);
+    uint32_t clearMask = irqStatus & (XCANFD_IXR_RXOK_MASK |
+                                      XCANFD_IXR_RXFWMFLL_MASK |
+                                      XCANFD_IXR_RXFWMFLL_1_MASK |
+                                      XCANFD_IXR_RXRBF_MASK |
+                                      XCANFD_IXR_TXOK_MASK |
+                                      XCANFD_IXR_TXRRS_MASK);
+    if (clearMask != 0) {
+        wr32(XCANFD_ICR_OFFSET, clearMask);
+    }
+
     LOGI("canfd", "recv", 1, "Frame received from FIFO%d id=0x%X len=%d", useFifo1 ? 1 : 0, pCanFrame->id, pCanFrame->len);
 
     return 1; // 返回接收到的帧数
