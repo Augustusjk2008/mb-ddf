@@ -736,7 +736,11 @@ int CanFDDevice::__axiCanfdIoctl(int iCmd, void* lArg) {
                                     pAxiCanFilter->uiMask,
                                     pAxiCanFilter->uiId);
             } else {
-                __axiCanfdAcceptFilterDisable(0xFFFFFFFF);                 // 禁用所有滤波器，接收所有帧
+                // 配置滤波器1接收所有帧: Mask=0x7FF(标准ID全匹配), ID=0(接收任何ID)
+                // 或者 Mask=0(不匹配任何位), ID=0(接收所有帧)
+                __axiCanfdAcceptFilterDisable(0xFFFFFFFF);                 // 先禁用所有
+                __axiCanfdAcceptFilterSet(1, 0x00000000, 0x00000000);      // 滤波器1: 掩码=0, 接收所有
+                __axiCanfdAcceptFilterEnable(0x00000001);                  // 启用滤波器1
             }
             break;
         }
