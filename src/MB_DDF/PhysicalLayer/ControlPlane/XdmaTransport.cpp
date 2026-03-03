@@ -221,8 +221,8 @@ bool XdmaTransport::readReg32(uint64_t offset, uint32_t& val) const {
         LOGE("xdma", "readReg32", EINVAL, "offset=%llu len=%zu", (unsigned long long)offset, mapped_len_);
         return false;
     }
-    uint32_t tmp = 0;
-    std::memcpy(&tmp, static_cast<const uint8_t*>(user_base_) + offset, sizeof(tmp));
+    volatile const uint32_t* reg = reinterpret_cast<volatile const uint32_t*>(static_cast<const uint8_t*>(user_base_) + offset);
+    uint32_t tmp = *reg;
     val = ltoh_u32(tmp);
     return true;
 }
@@ -241,7 +241,8 @@ bool XdmaTransport::writeReg32(uint64_t offset, uint32_t val) {
         return false;
     }
     uint32_t tmp = htol_u32(val);
-    std::memcpy(static_cast<uint8_t*>(user_base_) + offset, &tmp, sizeof(tmp));
+    volatile uint32_t* reg = reinterpret_cast<volatile uint32_t*>(static_cast<uint8_t*>(user_base_) + offset);
+    *reg = tmp;
     return true;
 }
 
