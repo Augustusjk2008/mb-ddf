@@ -665,7 +665,7 @@ int CanFDDevice::__axiCanfdIoctl(int iCmd, void* lArg) {
                     break;
                 }   
                 case 1000000: {
-                    ucNewBrp = 1; ucNewTsg1 = 14; ucNewTsg2 = 3; ucSJW = 3;
+                    ucNewBrp = 1; ucNewTsg1 = 6; ucNewTsg2 = 2; ucSJW = 2;
                     break;
                 }
                 default: {
@@ -704,7 +704,7 @@ int CanFDDevice::__axiCanfdIoctl(int iCmd, void* lArg) {
                     break;
                 }
                 case 1000000: {
-                    ucNewFBrp = 0; ucNewFTsg1 = 13; ucNewFTsg2 = 4; ucFSJW = 2;
+                    ucNewFBrp = 1; ucNewFTsg1 = 6; ucNewFTsg2 = 2; ucFSJW = 2;
                     break;
                 }
                 case 2000000: {
@@ -749,6 +749,8 @@ int CanFDDevice::__axiCanfdIoctl(int iCmd, void* lArg) {
         case CAN_DEV_SET_LOOPBACK: {
             __axiCanfdEnterMode(XCANFD_MODE_LOOPBACK);
             while (__axiCanfdGetMode() != XCANFD_MODE_LOOPBACK);
+            // 等待11个连续隐性位完成总线同步（文档要求）
+            usleep(100000);  // 100ms
             break;
         }
 
