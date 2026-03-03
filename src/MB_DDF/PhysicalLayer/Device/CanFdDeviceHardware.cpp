@@ -312,6 +312,7 @@ int CanFDDevice::__axiCanfdHwInit(void) {
     __axiCanfdSetFBitTiming(1, 1, 6);
 
     wr32(XCANFD_IETRS_OFFSET, 0xFFFFFFFF);  // 使能发送FIFO中断
+    wr32(XCANFD_WIR_OFFSET, 0x00010001);    // 设置接收FIFO水线: FIFO0=1, FIFO1=1
     __axiCanfdInterruptEnable((XCANFD_IXR_TXOK_MASK  |       // 使能中断
                                            XCANFD_IXR_BSOFF_MASK |
                                            XCANFD_IXR_RXMNF_MASK |
