@@ -501,7 +501,12 @@ int CanFDDevice::__axiCanfdSend(CanFrame *pCanFrame) {
     rd32(XCANFD_SR_OFFSET, sr);
     rd32(XCANFD_ESR_OFFSET, esr);
 
-    LOGI("canfd", "send", timeout, "TRR=0x%08X MSR=0x%08X SR=0x%08X ESR=0x%08X", trrStatus, msr, sr, esr);
+    uint32_t afr, fsr;
+    rd32(XCANFD_AFR_OFFSET, afr);
+    rd32(XCANFD_FSR_OFFSET, fsr);
+
+    LOGI("canfd", "send", timeout, "TRR=0x%08X MSR=0x%08X SR=0x%08X ESR=0x%08X AFR=0x%08X FSR=0x%08X",
+         trrStatus, msr, sr, esr, afr, fsr);
 
     return timeout > 0 ? 0 : -1;
 }
