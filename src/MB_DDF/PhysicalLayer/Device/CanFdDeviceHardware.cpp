@@ -489,7 +489,21 @@ int CanFDDevice::__axiCanfdSend(CanFrame *pCanFrame) {
     rd32(XCANFD_TRR_OFFSET, uiValue);
     uiValue |= (1 << uiFreeTxBuffer);
     wr32(XCANFD_TRR_OFFSET, uiValue);   // 置位TRR代表进行发送
-    return 0;
+
+    // 调试：等待发送完成并检查状态
+    uint32_t trrStatus, msr, sr, esr;
+    int timeout = 10000;
+    do {
+        rd32(XCANFD_TRR_OFFSET, trrStatus);
+    } while ((trrStatus & (1 << uiFreeTxBuffer)) && --timeout > 0);
+
+    rd32(XCANFD_MSR_OFFSET, msr);
+    rd32(XCANFD_SR_OFFSET, sr);
+    rd32(XCANFD_ESR_OFFSET, esr);
+
+    LOGI("canfd", "send", timeout, "TRR=0x%08X MSR=0x%08X SR=0x%08X ESR=0x%08X", trrStatus, msr, sr, esr);
+
+    return timeout > 0 ? 0 : -1;
 }
 
 // CanFD接收（FIFO模式）
