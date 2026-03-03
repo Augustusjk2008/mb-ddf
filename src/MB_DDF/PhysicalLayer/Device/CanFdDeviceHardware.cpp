@@ -521,6 +521,14 @@ int CanFDDevice::__axiCanfdSend(CanFrame *pCanFrame) {
         }
     }
 
+    // 直接读取RX FIFO0和FIFO1的第一个ID寄存器，看是否有数据
+    uint32_t rxId0, rxDlc0, rxId1, rxDlc1;
+    rd32(XCANFD_RXFIFO_0_BASE_ID_OFFSET, rxId0);
+    rd32(XCANFD_RXFIFO_0_BASE_DLC_OFFSET, rxDlc0);
+    rd32(XCANFD_RXFIFO_1_BUFFER_0_BASE_ID_OFFSET, rxId1);
+    rd32(XCANFD_RXFIFO_1_BUFFER_0_BASE_DLC_OFFSET, rxDlc1);
+    LOGI("canfd", "send", 0, "RX_FIFO0[0] ID=0x%08X DLC=0x%08X RX_FIFO1[0] ID=0x%08X DLC=0x%08X", rxId0, rxDlc0, rxId1, rxDlc1);
+
     return timeout > 0 ? 0 : -1;
 }
 
